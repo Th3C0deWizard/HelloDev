@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.articlesContainer {
+  @apply bg-slate-200 mt-0 py-10 px-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-14 rounded-t-xl;
+}
