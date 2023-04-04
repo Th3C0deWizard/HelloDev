@@ -1,11 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import Header from "../components/Header";
 import Footer_2 from "../components/Footer_2";
 import "../components/author_profile.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+const AuthorProfile = () => {
+  return (
     <div>
       <Header />
       {/*Este es el componente que se va a renderizar*/}
@@ -95,5 +93,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </section>
       <Footer_2 />
     </div>
-  </React.StrictMode>
-);
+  );
+};
+
+export default AuthorProfile;

@@ -1,11 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer_2 from "../components/Footer_2";
 import "../components/author_profile.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+const SendArticle = () => {
+  return (
     <div>
       <Header />
       {/*Este es el componente que se va a renderizar*/}
@@ -51,7 +50,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             id="file_input"
             type="file"
           />
-          <button className="save">Enviar</button> {/*Boton guardar cambios*/}
+          <Link to="/AuthorArticles">
+            <button className="save">Enviar</button> {/*Boton guardar cambios*/}
+          </Link>
         </div>
 
         {/*Imagen*/}
@@ -63,5 +64,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </section>
       <Footer_2 />
     </div>
-  </React.StrictMode>
-);
+  );
+};
+
+export default SendArticle;

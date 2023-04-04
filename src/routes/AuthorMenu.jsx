@@ -1,10 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import Header from "../components/Header";
 import Footer_2 from "../components/Footer_2";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+const AuthorMenu = () => {
+  return (
     <div>
       <Header />
       <section class="grid grid-cols-3 gap-2 bg-slate-900 p-2 pt-10 pb-20">
@@ -95,5 +93,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </section>
       <Footer_2 />
     </div>
-  </React.StrictMode>
-);
+  );
+};
+
+export default AuthorMenu;

@@ -4,7 +4,7 @@ const Footer_2 = () => {
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
                 <a href="./" class="flex items-center mb-4 sm:mb-0">
-                    <img src="./src/components/assets/logo.png" class="h-8 mr-3" alt="Logo" />
+                    <img src="./src/components/assets/short_logo.png" class="h-8 mr-3" alt="Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">UAM HelloDev!</span>
                 </a>
                 <ul class="flex flex-wrap items-center mb-4 text-sm font-medium text-white sm:mb-0">

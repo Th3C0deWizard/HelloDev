@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer_2 from "../components/Footer_2";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+const Login = () => {
+  return (
     <div>
       <Header />
       <section class="bg-gray-800">
@@ -82,16 +82,19 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                     Forgot password?
                   </a>
                 </div>
-                <button
-                  type="submit"
-                  class="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 :hover:bg-primary-700 focus:ring-primary-800"
-                >
-                  Login into your account
-                </button>
+                <Link to="/AuthorProfile">
+                  <button
+                    type="submit"
+                    class="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 :hover:bg-primary-700 focus:ring-primary-800"
+                  >
+                    Login into your account
+                  </button>
+                </Link>
+
                 <p class="grid place-items-center text-sm font-light text-amber-300">
                   Don’t have an account yet?{" "}
                   <a
-                    href="#"
+                    href="/register"
                     class="font-medium text-amber-400 hover:underline"
                   >
                     {" "}
@@ -105,5 +108,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </section>
       <Footer_2 />
     </div>
-  </React.StrictMode>
-);
+  );
+};
+
+export default Login;

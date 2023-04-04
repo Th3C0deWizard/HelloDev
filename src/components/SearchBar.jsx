@@ -7,7 +7,7 @@ const SearchBar = () => {
     <div className="searchBarContainer">
       <h1 className="searchBarTittle">Articulos</h1>
       <div className="container">
-        <select className="rounded-l-full bg-blue-700 h-full text-white pl-4">
+        <select className="rounded-l-full bg-blue-700 w-auto text-white pl-4">
           <option value="0">All Categorys</option>
           <option value="1">Categoria 1</option>
           <option value="2">Categoria 2</option>

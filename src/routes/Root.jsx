@@ -17,7 +17,7 @@ const articles = Array.from(
     )
 );
 
-function App() {
+function Root() {
   return (
     <div>
       <Header />
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;

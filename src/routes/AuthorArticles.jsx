@@ -1,10 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import Header from "../components/Header";
 import Footer_2 from "../components/Footer_2";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+const AuthorArticles = () => {
+  return (
     <div>
       <Header />
       <section class=" bg-slate-900 p-8">
@@ -61,5 +59,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </section>
       <Footer_2 />
     </div>
-  </React.StrictMode>
-);
+  );
+};
+
+export default AuthorArticles;
