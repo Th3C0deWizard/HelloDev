@@ -6,7 +6,7 @@ const Header = () => {
       <header className="header">
         <a className="text" href="./">
           HelloDev!
-          <img src="./src/components/assets/logo.png" alt="Logo" />
+          <img class="ml-5" src="./src/components/assets/logo.png" alt="Logo" />
         </a>
         <button className="userProfileButton" data-dropdown-toggle="dropdown">
           <img
