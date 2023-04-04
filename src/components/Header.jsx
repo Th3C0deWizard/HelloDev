@@ -9,7 +9,7 @@ const Header = () => {
       <header className="header">
         <a className="text" href="./">
           HelloDev!
-          <img src="./src/components/assets/logo.png" alt="Logo" />
+          <img src="./src/components/assets/short_logo.png" alt="Logo" />
         </a>
         <div
           className={`ml-auto flex flex-col ${

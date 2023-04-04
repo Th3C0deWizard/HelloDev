@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+footer {
+    background-color: #0069a3;
+    @apply p-4 rounded-b-3xl h-20 text-white flex;
+  }
