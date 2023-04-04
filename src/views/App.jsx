@@ -1,7 +1,7 @@
-import Header from "./Header";
-import SearchBar from "./SearchBar";
-import ArticleSet from "./ArticleSet";
-import Footer from "./Footer";
+import Header from "../components/Header";
+import SearchBar from "../components/SearchBar";
+import ArticleSet from "../components/ArticleSet";
+import Footer from "../components/Footer";
 import Article from "../models/Article";
 import "./App.css";
 
