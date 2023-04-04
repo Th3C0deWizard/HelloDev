@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.articleCard {
+  @apply w-64 h-64 bg-gray-100 overflow-hidden rounded-xl shadow-xl cursor-pointer;
+}
+
+.articleCover {
+  @apply w-full h-48 object-cover;
+}
+
+.articleTittle {
+  @apply text-blue-800 text-lg font-bold mb-2;
+}
+
+.articleText {
+  @apply text-blue-800 text-sm mb-1 ml-auto;
+}
+
+.articleSypnosis {
+  @apply text-sm text-gray-700 h-16 overflow-hidden hover:overflow-visible;
+}

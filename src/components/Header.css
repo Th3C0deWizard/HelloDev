@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.headerContainer {
+  @apply bg-white;
+}
+
+.header {
+  background-color: #0069a3;
+  @apply p-4 rounded-b-3xl h-20 text-white flex;
+}
+
+.userProfileButton {
+  @apply relative bg-gray-700 hover:bg-gray-900 text-white px-4 py-2 rounded-full mx-auto mt-0 
+  w-10 h-10 hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-offset-gray-800 hover:ring-white;
+}
+
+.userProfileImage {
+  @apply w-full h-full object-cover rounded-full absolute inset-0;
+}
+
+.text {
+  @apply text-3xl font-bold mt-1 hover:text-red-400 flex;
+}
