@@ -19,7 +19,7 @@ const articles = Array.from(
 
 function Root() {
   return (
-    <div>
+    <div className="bg-gray-800">
       <Header />
       <SearchBar />
       <ArticleSet articles={articles} />

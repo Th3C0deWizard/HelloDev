@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "./header.css";
 
 const Header = () => {
   const [isDisplayed, setIsDisplayed] = useState(false);
 
   return (
-    <div className="headerContainer">
-      <header className="header">
-        <a className="text" href="./">
+    <div className="bg-gray-800">
+      <header className="p-4 rounded-b-3xl h-20 text-white flex bg-[#0069a3]">
+        <a
+          className="text-3xl font-bold mt-1 hover:text-red-400 flex"
+          href="./"
+        >
           HelloDev!
           <img src="./src/components/assets/short_logo.png" alt="Logo" />
         </a>
@@ -18,13 +20,13 @@ const Header = () => {
           } text-white rounded-full p-0 w-12 h-36`}
         >
           <button
-            className="userProfileButton"
+            className="relative bg-gray-700 hover:bg-gray-900 text-white px-4 py-2 rounded-full mx-auto mt-0 w-10 h-10 hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-offset-gray-800 hover:ring-white"
             onClick={() => {
               setIsDisplayed(!isDisplayed);
             }}
           >
             <img
-              className="userProfileImage"
+              className="w-full h-full object-cover rounded-full absolute inset-0"
               src="src/components/assets/userProfile.png"
               alt="user"
             />
