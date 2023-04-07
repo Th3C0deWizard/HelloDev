@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="bg-[#0069a3] h-full shadow dark:bg-[#0069a3] ">
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+      <div className="w-full max-w-screen-xl h-full mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a href="./" className="flex items-center mb-4 sm:mb-0">
             <img
@@ -15,22 +15,22 @@ const Footer = () => {
           </a>
           <ul className="flex flex-wrap items-center mb-4 text-sm font-medium text-white sm:mb-0">
             <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6 ">
+              <a href="/" className="mr-4 hover:underline md:mr-6 ">
                 About
               </a>
             </li>
             <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">
+              <a href="/" className="mr-4 hover:underline md:mr-6">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6 ">
+              <a href="/" className="mr-4 hover:underline md:mr-6 ">
                 Licensing
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/" className="hover:underline">
                 Contact
               </a>
             </li>

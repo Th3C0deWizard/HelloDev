@@ -57,7 +57,7 @@ const router = createBrowserRouter([
   {
     path: "AuthorsList",
     element: <AuthorsList />,
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
