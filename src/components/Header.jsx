@@ -41,8 +41,7 @@ const Header = () => {
               className="flex flex-col w-12 h-16 mb-0 mt-6 justify-center items-center"
               to="/login"
             >
-              <button className="h-8 mb-2 rounded-full">Autor</button>
-              <button className="h-8 mb-2 rounded-full">Editor</button>
+              <button className="h-8 mb-2 rounded-full">Login</button>
             </Link>
           ) : null}
         </div>
