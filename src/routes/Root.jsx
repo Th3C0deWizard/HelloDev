@@ -1,27 +1,25 @@
 import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
 import ArticleSet from "../components/ArticleSet";
 import Footer from "../components/Footer";
 import Article from "../models/Article";
 
 const articles = Array.from(
-  { length: 10 },
+  { length: 8 },
   (a, i) =>
     new Article(
       i,
-      "titulo",
-      "erase una vez",
-      "Roberto",
-      "1982",
+      "Titulo",
+      "Resumen",
+      "Roberto Perez",
+      "1982-10-12",
       `https://picsum.photos/seed/${i * Math.random()}/400/300`
     )
 );
 
 function Root() {
   return (
-    <div className="bg-gray-800">
+    <div className="bg-slate-900">
       <Header />
-      <SearchBar />
       <ArticleSet articles={articles} />
       <Footer />
     </div>

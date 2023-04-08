@@ -37,7 +37,7 @@ const Footer = () => {
           </ul>
         </div>
         <hr className="my-4 border-gray-200 sm:mx-auto" />
-        <span className="block text-sm text-white sm:text-center">
+        <span className="block text-sm text-white sm:text-center mt-8">
           © 2023{" "}
           <a href="https://flowbite.com/" className="hover:underline">
             Flowbite™
