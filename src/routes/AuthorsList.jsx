@@ -9,7 +9,7 @@ const AuthorsList = () => {
     <div>
       <Header />
       <section className=" bg-slate-900 p-8">
-        <h1 className="grid place-items-center mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h1 className="grid place-items-center mb-4 font-extrabold text-5xl text-white">
           Autores
         </h1>
         <Table
@@ -52,18 +52,7 @@ const AuthorsList = () => {
             "",
           ]}
         />
-
-        <div className="grid grid-cols-12 gap-0">
-          <div className="col-span-9">
-            <SearchBar />
-          </div>
-          <div className="col-span-2">
-            <Button
-              text="Descargar"
-              style=" bg-teal-400 hover:bg-teal-500 text-teal-800 focus:ring-teal-900 shadow-teal-800/80"
-            />
-          </div>
-        </div>
+        <SearchBar />
       </section>
       <Footer />
     </div>

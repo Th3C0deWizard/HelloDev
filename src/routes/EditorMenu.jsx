@@ -8,7 +8,7 @@ const EditorMenu = () => {
     <div>
       <Header />
       <section className="grid grid-cols-3 gap-2 bg-slate-900 p-2 pt-10 pb-20">
-        <Tittle tittle="Menú" acronym="Editor" factor={2} />
+        <Tittle tittle="Menú" acronym="Editor" factor={4} />
         <p className="col-start-2 grid place-items-center my-4 text-xl text-gray-500 mb-15">
           Tienes todas estas posibilidades a tú mano:
         </p>

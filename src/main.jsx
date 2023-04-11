@@ -4,14 +4,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import Login from "./routes/Login";
 import Register from "./routes/Register";
-import SendArticle from "./routes/SendArticle";
-import AuthorProfile from "./routes/AuthorProfile";
+import AddArticle from "./routes/AddArticle";
 import AuthorMenu from "./routes/AuthorMenu";
 import AuthorArticles from "./routes/AuthorArticles";
 import EditorMenu from "./routes/EditorMenu";
 import EditorReceivedArticles from "./routes/EditorReceivedArticles";
 import EditorArticlesHistory from "./routes/EditorArticlesHistory";
 import AuthorsList from "./routes/AuthorsList";
+import Profile from "./routes/Profile";
 
 const router = createBrowserRouter([
   {
@@ -27,12 +27,12 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "SendArticle",
-    element: <SendArticle />,
+    path: "AddArticle",
+    element: <AddArticle />,
   },
   {
-    path: "AuthorProfile",
-    element: <AuthorProfile />,
+    path: "Profile",
+    element: <Profile />,
   },
   {
     path: "AuthorMenu",

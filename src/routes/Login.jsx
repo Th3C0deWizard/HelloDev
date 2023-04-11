@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Input from "../components/Input";
 
 const Login = () => {
   return (
@@ -27,52 +28,33 @@ const Login = () => {
               />
               {"HelloDev!"}
             </a>
-            <div className="w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 bg-slate-900 border-gray-700 bg-opacity-70">
-              <div className="p-6 space-y-4 md:space-y-5 sm:p-8">
-                <h1 className="grid place-items-center text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
+            <div className="w-full rounded-lg shadow sm:max-w-md bg-slate-900 border-gray-700 bg-opacity-70">
+              <div className="p-8 space-y-4">
+                <h1 className="grid place-items-center text-3xl font-bold text-white">
                   Sign in to your account
                 </h1>
                 <form className="space-y-4 md:space-y-6" action="#">
-                  <div>
-                    <label
-                      for="email"
-                      className="block mb-2 text-sm font-medium text-white"
-                    >
-                      Your email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="name@company.com"
-                      required=""
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      for="password"
-                      className="block mb-2 text-sm font-medium text-white"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      placeholder="••••••••"
-                      className="sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                      required=""
-                    />
-                  </div>
+                  <Input
+                    label="Your email"
+                    type="email"
+                    id="email"
+                    placeholder="name@company.com"
+                    style=""
+                  />
+                  <Input
+                    label="Your password"
+                    type="password"
+                    id="password"
+                    placeholder="••••••••"
+                    style=""
+                  />
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-start">
                       <input
                         type="checkbox"
                         value=""
-                        className="w-4 h-4 rounded bg-gray-700 border-gray-600 focus:amber-400 ring-offset-gray-800"
+                        className="w-4 h-4 rounded bg-gray-700 border-gray-600 focus:bg-amber-400 focus:border-amber-400 focus:ring-amber-300"
                         required
                       />
                       <label
@@ -92,7 +74,7 @@ const Login = () => {
                   <Link to="/AuthorMenu">
                     <button
                       type="submit"
-                      className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 :hover:bg-primary-700 focus:ring-primary-800"
+                      className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2"
                     >
                       Login into your account
                     </button>

@@ -2,7 +2,7 @@ function Table(props) {
   return (
     <div className="grid place-items-center sm:rounded-lg">
       <table className="my-10 text-sm text-left text-gray-400 ">
-        <thead className="text-2xs uppercase bg-[#0069a3] text-white font-semibold ">
+        <thead className="text-3xs uppercase bg-[#0069a3] text-white font-semibold ">
           <tr className="border border-gray-600">
             {props.headers.map((header, i) => {
               return (
