@@ -1,21 +1,18 @@
 function Input(props) {
-  return (
-    <div class="relative z-0">
-      <input
-        type={props.type}
-        id={props.id}
-        class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 appearance-none text-white border-gray-600 focus:outline-none focus:border-amber-300 peer"
-        placeholder=" "
-        required
-      />
-      <label
-        for={props.id}
-        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-amber-300  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-      >
-        {props.label}
-      </label>
-    </div>
-  );
+	return (
+		<div className={props.style}>
+			<label for="" className="block mb-2 text-sm font-medium text-white">
+				{props.label}
+			</label>
+			<input
+				type={props.type}
+				id={props.id}
+				className="sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+				placeholder={props.placeholder}
+				required
+			/>
+		</div>
+	);
 }
 
 export default Input;

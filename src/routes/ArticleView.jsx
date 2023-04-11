@@ -3,7 +3,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const ArticleView = () => {
-	const { title, author, date, synopsis, content, cover } = useLocation().state;
+	const { title, author, date, synopsis, content, cover } =
+		useLocation().state.article;
 	return (
 		<>
 			<Header />

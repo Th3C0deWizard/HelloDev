@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import AddArticle from "./routes/AddArticle";
 import ArticleView from "./routes/ArticleView";
 import AuthorArticles from "./routes/AuthorArticles";
 import AuthorMenu from "./routes/AuthorMenu";
-import AuthorProfile from "./routes/AuthorProfile";
 import AuthorsList from "./routes/AuthorsList";
 import EditorArticlesHistory from "./routes/EditorArticlesHistory";
 import EditorMenu from "./routes/EditorMenu";
 import EditorReceivedArticles from "./routes/EditorReceivedArticles";
 import Login from "./routes/Login";
+import Profile from "./routes/Profile";
 import Register from "./routes/Register";
 import Root from "./routes/Root";
-import SendArticle from "./routes/SendArticle";
 
 const router = createBrowserRouter([
 	{
@@ -28,12 +29,12 @@ const router = createBrowserRouter([
 		element: <Register />,
 	},
 	{
-		path: "SendArticle",
-		element: <SendArticle />,
+		path: "AddArticle",
+		element: <AddArticle />,
 	},
 	{
-		path: "AuthorProfile",
-		element: <AuthorProfile />,
+		path: "Profile",
+		element: <Profile />,
 	},
 	{
 		path: "AuthorMenu",

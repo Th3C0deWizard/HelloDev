@@ -25,11 +25,11 @@ const articles = Array.from(
 
 function Root() {
 	return (
-		<div className="bg-slate-900">
+		<main className="bg-slate-900">
 			<Header />
 			<ArticleSet articles={articles} />
 			<Footer />
-		</div>
+		</main>
 	);
 }
 
