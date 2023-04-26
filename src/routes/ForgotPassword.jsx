@@ -1,15 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Input from "../components/Input";
 
-const Login = () => {
+const ForgotPassword = () => {
 	return (
 		<>
 			<Header />
 			<div
-				className="flex justify-center "
+				className="flex justify-center"
 				style={{
 					background:
 						"url(https://images.unsplash.com/photo-1616763355603-9755a640a287?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)",
@@ -31,7 +30,7 @@ const Login = () => {
 						<div className="w-full rounded-lg shadow sm:max-w-md bg-slate-900 border-gray-700 bg-opacity-70">
 							<div className="p-8 space-y-4">
 								<h1 className="grid place-items-center text-3xl font-bold text-white">
-									Sign in to your account
+									Recover your password
 								</h1>
 								<form className="space-y-4 md:space-y-6" action="#">
 									<Input
@@ -39,13 +38,6 @@ const Login = () => {
 										type="email"
 										id="email"
 										placeholder="name@company.com"
-										style=""
-									/>
-									<Input
-										label="Your password"
-										type="password"
-										id="password"
-										placeholder="••••••••"
 										style=""
 									/>
 									<div className="flex items-center justify-between">
@@ -63,12 +55,6 @@ const Login = () => {
 												Remember me
 											</label>
 										</div>
-										<a
-											href="/ForgotPassword"
-											className="text-sm font-medium hover:underline text-amber-400"
-										>
-											Forgot password?
-										</a>
 									</div>
 									<Link to="/AuthorMenu">
 										<button
@@ -100,4 +86,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default ForgotPassword;

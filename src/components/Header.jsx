@@ -3,23 +3,23 @@ import NotificationBlock from "./NotificationBlock";
 
 const Header = () => {
 	return (
-		<div className="bg-slate-900">
-			<header className="p-4 h-20 text-white flex bg-[#0069a3]">
-				<a
-					className="text-3xl font-bold mt-1 hover:text-[#ffc107] flex"
-					href="./"
-				>
-					<img
-						className="pr-5"
-						src="./src/components/assets/short_logo.png"
-						alt="Logo"
-					/>
-					HelloDev!
-				</a>
+		<header className="grid grid-cols-2 items-center w-full h-20 bg-[#0069a3]">
+			<a
+				className="flex h-16 mx-2 items-center text-3xl font-bold hover:text-[#ffc107]"
+				href="/"
+			>
+				<img
+					className="h-full mr-5"
+					src="./src/components/assets/short_logo.png"
+					alt="Logo"
+				/>
+				HelloDev!
+			</a>
+			<section className="flex flex-row justify-end items-center">
 				<NotificationBlock />
 				<Avatar />
-			</header>
-		</div>
+			</section>
+		</header>
 	);
 };
 

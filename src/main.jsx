@@ -10,6 +10,7 @@ import AuthorsList from "./routes/AuthorsList";
 import EditorArticlesHistory from "./routes/EditorArticlesHistory";
 import EditorMenu from "./routes/EditorMenu";
 import EditorReceivedArticles from "./routes/EditorReceivedArticles";
+import ForgotPassword from "./routes/ForgotPassword";
 import Login from "./routes/Login";
 import Profile from "./routes/Profile";
 import Register from "./routes/Register";
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
 	{
 		path: "ArticleView",
 		element: <ArticleView />,
+	},
+	{
+		path: "/ForgotPassword",
+		element: <ForgotPassword />,
 	},
 ]);
 

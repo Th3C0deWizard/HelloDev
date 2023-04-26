@@ -7,13 +7,13 @@ function NotificationBlock() {
 			<button
 				id="dropdownNotificationButton"
 				data-dropdown-toggle="dropdownNotification"
-				className="inline-flex items-center ml-auto text-sm font-medium text-center focus:outline-none hover:text-white"
+				className="flex justify-center items-center"
 				type="button"
 			>
 				<Icon
 					path="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
-					w={11}
-					h={11}
+					w={10}
+					h={10}
 					color="white"
 				/>
 				<div className="relative flex">
@@ -23,7 +23,7 @@ function NotificationBlock() {
 
 			<div
 				id="dropdownNotification"
-				className="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-600 rounded-lg shadow bg-gray-600"
+				className="z-10 hidden w-full max-w-sm bg-white divide-y divide-gray-600 rounded-lg shadow bg-gray-600"
 				aria-labelledby="dropdownNotificationButton"
 			>
 				<div className="block px-4 py-2 font-medium text-center rounded-t-lg bg-gray-700 text-white">
