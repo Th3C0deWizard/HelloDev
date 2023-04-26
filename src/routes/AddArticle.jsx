@@ -9,7 +9,7 @@ const SendArticle = () => {
     <>
       <Header />
       <div
-        className="flex justify-center"
+        className="flex justify-center min-h-[93vh] bg-cover"
         style={{
           background:
             "url(https://images.unsplash.com/photo-1616763355603-9755a640a287?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)",
@@ -28,20 +28,16 @@ const SendArticle = () => {
                 placeholder="Titulo"
                 style="col-start-1 col-span-5"
               />
-              <h3 className="col-span-5 block mt-2 mb-2 text-sm font-medium text-white">
-                Resumen
-              </h3>
+              <h3 className="col-span-5">Resumen</h3>
               <textarea
-                className="col-span-5 resize-none h-24 sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                className="col-span-5"
                 placeholder=" Resumen..."
                 required
               />
-              <h3 className="col-start-1 col-span-2 mt-5 block mb-2 text-sm font-medium text-white">
+              <h3 className="col-start-1 col-span-2 mt-5">
                 Archivo del Articulo
               </h3>
-              <h3 className="col-start-4 col-span-2 mt-5 block mb-2 text-sm font-medium text-white">
-                Portada
-              </h3>
+              <h3 className="col-start-4 col-span-2 mt-5">Portada</h3>
               <div className="col-start-1 col-span-2 items-center justify-center w-full">
                 <InputFile placeholder="PDF, WORD, or TXT (MAX. 800x400px)" />
               </div>

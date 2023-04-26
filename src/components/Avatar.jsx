@@ -7,7 +7,7 @@ function Avatar() {
       <button
         id="dropdownUserAvatarButton"
         data-dropdown-toggle="dropdownAvatar"
-        className="flex mx-3 text-sm bg-[#0069a3] rounded-full md:mr-0 focus:ring-4 focus:ring-blue-600"
+        className="flex justify-center items-center mr-5 bg-[#0069a3] rounded-full focus:ring-4 focus:ring-blue-600"
         type="button"
       >
         <Icon

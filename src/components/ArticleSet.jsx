@@ -4,10 +4,10 @@ import Tittle from "./Tittle";
 
 const ArticleSet = ({ articles }) => {
   return (
-    <section className="bg-slate-900 rounded-t-xl m-0 py-10 px-10 mx-3 ">
-      <section className="flex flex-col justify-center items-center mb-10 ">
+    <section className="min-h-[93vh] bg-slate-900 rounded-t-xl m-0 p-10">
+      <section className="flex flex-col justify-center items-center mb-10">
         <Tittle tittle="ARTICULOS" acronym="UAM" factor={5} />
-        <div className="w-full mt-5">
+        <div className="w-full">
           <SearchBar />
         </div>
       </section>

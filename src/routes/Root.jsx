@@ -28,11 +28,11 @@ const articles = Array.from(
 
 function Root() {
   return (
-    <main className="bg-slate-900">
+    <>
       <Header />
       <ArticleSet articles={articles} />
       <Footer />
-    </main>
+    </>
   );
 }
 
