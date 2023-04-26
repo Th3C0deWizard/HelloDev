@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { Link } from "react-router-dom";
 
 function Avatar() {
   return (
@@ -30,21 +31,21 @@ function Avatar() {
           aria-labelledby="dropdownUserAvatarButton"
         >
           <li>
-            <a
-              href="/AuthorMenu"
+            <Link
+              to="/AuthorMenu"
               className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
             >
               Menu
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="py-2">
-          <a
-            href="/Login"
+          <Link
+            to="/Login"
             className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white"
           >
             Sign in
-          </a>
+          </Link>
         </div>
       </div>
     </>

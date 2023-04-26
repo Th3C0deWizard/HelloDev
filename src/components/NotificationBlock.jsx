@@ -1,5 +1,6 @@
 import Icon from "./Icon";
 import Notification from "./Notification";
+import { Link } from "react-router-dom";
 
 function NotificationBlock() {
   return (
@@ -33,8 +34,8 @@ function NotificationBlock() {
           <Notification />
           <Notification />
         </div>
-        <a
-          href="/AuthorArticles"
+        <Link
+          to="/AuthorArticles"
           className="block py-2 text-sm font-medium text-center rounded-b-lg bg-gray-700 hover:bg-gray-700 text-white"
         >
           <div className="inline-flex items-center ">
@@ -46,7 +47,7 @@ function NotificationBlock() {
             />
             View all
           </div>
-        </a>
+        </Link>
       </div>
     </>
   );
