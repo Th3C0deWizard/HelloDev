@@ -9,7 +9,7 @@ const Login = (props) => {
     props.setU({
       id: 1,
       name: "John",
-      rol: ["autor"],
+      rol: ["editor"],
     });
 
   return (

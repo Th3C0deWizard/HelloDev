@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
     "flowbite": "^1.6.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

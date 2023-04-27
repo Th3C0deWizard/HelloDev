@@ -1,6 +1,6 @@
 function Tittle(props) {
   return (
-    <h1 className={`text-${props.factor}xl font-extrabold text-white`}>
+    <h1 className={`text-${props.factor}xl font-extrabold text-white mb-4`}>
       {props.tittle}{" "}
       <span
         className={`bg-amber-200 text-amber-600 text-${

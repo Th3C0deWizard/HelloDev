@@ -30,7 +30,7 @@ const SendArticle = () => {
               />
               <h3 className="col-span-5">Resumen</h3>
               <textarea
-                className="col-span-5"
+                className="col-span-5 sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                 placeholder=" Resumen..."
                 required
               />
