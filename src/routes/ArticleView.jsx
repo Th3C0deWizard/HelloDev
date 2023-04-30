@@ -3,6 +3,7 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import PdfViewer from "../components/PdfViewer";
+import InfoCard from "../components/InfoCard";
 
 const ArticleView = () => {
   const { title, author, date, synopsis, content, cover } =
@@ -25,7 +26,7 @@ const ArticleView = () => {
   return (
     <>
       <Header />
-      <main className="flex flex-col bg-slate-900 text-white w-full">
+      <main className="flex flex-col bg-slate-900 text-white w-full pt-20">
         <section className="grid grid-cols-3 items-start">
           <section className="items-center col-span-2 row-span-2">
             <input
@@ -38,21 +39,12 @@ const ArticleView = () => {
           </section>
 
           <section className="my-5 ml-3 mr-2 p-3 rounded-xl border bg-slate-800">
-            <section className="my-3 p-3 rounded-xl border flex flex-col items-start">
-              <h1 className="text-2xl">{title}</h1>
-              <h2 className=" text-xl">Autor : {author}</h2>
-              <h2 className="text-xl">Fecha : {date}</h2>
-            </section>
-            <section className="flex flex-col rounded-xl border items-center my-3 p-3 space-y-4">
-              <h1 className="text-2xl"> Synopsis</h1>
-              <p className="self-start">{synopsis}</p>
-            </section>
-          </section>
-          <section className="flex rounded-xl bg-slate-800 border my-5 mx-2 justify-center items-center self-center">
-            <img
-              className="rounded-xl m-2 border w-full h-full "
-              src={cover}
-              alt="cover of the article"
+            <InfoCard
+              title={title}
+              author={author}
+              date={date}
+              synopsis={synopsis}
+              cover={cover}
             />
           </section>
         </section>

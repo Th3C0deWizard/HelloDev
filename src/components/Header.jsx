@@ -1,22 +1,24 @@
 import Avatar from "./Avatar";
 import NotificationBlock from "./NotificationBlock";
+import SearchBar from "../components/SearchBar";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="bg-slate-900">
-      <header className="p-4 h-20 text-white flex bg-[#0069a3]">
-        <Link
-          className="text-3xl font-bold mt-1 hover:text-[#ffc107] flex"
-          to="/"
-        >
+    <div className="z-10 fixed w-full bg-slate-900">
+      <header className="h-14 text-white flex bg-[#0069a3]">
+        <Link className="text-2xl font-bold hover:text-[#ffc107] flex" to="/">
           <img
-            className="pr-5"
-            src="./src/components/assets/short_logo.png"
+            className="ml-5 h-[62px] w-[110px]"
+            src="./src/components/assets/header_logo.png"
             alt="Logo"
           />
-          HelloDev!
         </Link>
+        {window.location.pathname === "/" ? (
+          <div className="w-full pt-1.5">
+            <SearchBar />
+          </div>
+        ) : null}
         <NotificationBlock />
         <Avatar />
       </header>

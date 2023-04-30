@@ -10,6 +10,8 @@ import Login from "./routes/Login";
 import Profile from "./routes/Profile";
 import Register from "./routes/Register";
 import Root from "./routes/Root";
+import ForgotPassword from "./routes/ForgotPassword";
+import RestorePassword from "./routes/RestorePassword";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import { useState } from "react";
@@ -28,7 +30,15 @@ function App() {
     },
     {
       path: "Login",
-      element: <Login setU={setUser} />,
+      element: <Login setU={setUser} user={user} />,
+    },
+    {
+      path: "ForgotPassword",
+      element: <ForgotPassword />,
+    },
+    {
+      path: "RestorePassword",
+      element: <RestorePassword />,
     },
     {
       path: "Register",

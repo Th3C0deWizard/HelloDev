@@ -9,7 +9,7 @@ function PdfViewer(props) {
 
   return (
     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
-      <div className="h-[750px]  p-5">
+      <div className="h-[750px]  px-10">
         <Viewer fileUrl={props.pdf} plugins={[defaultLayoutPluginInstance]} />
       </div>
     </Worker>

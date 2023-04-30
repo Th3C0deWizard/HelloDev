@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Article from "../models/Article";
 
 const articles = Array.from(
-  { length: 8 },
+  { length: 6 },
   (a, i) =>
     new Article(
       i,

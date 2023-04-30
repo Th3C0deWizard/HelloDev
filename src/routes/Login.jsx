@@ -16,7 +16,7 @@ const Login = (props) => {
     <>
       <Header />
       <div
-        className="flex justify-center "
+        className="flex justify-center pt-20"
         style={{
           background:
             "url(https://images.unsplash.com/photo-1616763355603-9755a640a287?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)",
@@ -82,17 +82,17 @@ const Login = (props) => {
                     <button
                       type="submit"
                       onClick={login}
-                      className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2"
+                      className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-[#F4D73B] font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2"
                     >
                       Login into your account
                     </button>
                   </Link>
 
-                  <p className="grid place-items-center text-sm font-light text-amber-300">
+                  <p className="grid place-items-center text-sm font-light text-[#F4D73B]">
                     Don’t have an account yet?{" "}
                     <Link
                       to="/register"
-                      className="font-medium text-amber-400 hover:underline"
+                      className="font-medium text-[#F4D73B] hover:underline"
                     >
                       {" "}
                       Sign up
