@@ -7,8 +7,8 @@ const AuthorsList = () => {
   return (
     <>
       <Header />
-      <section className=" bg-slate-900 p-8 h-[64.8vh]">
-        <h1 className="grid place-items-center mb-4 font-extrabold text-5xl text-white">
+      <section className=" bg-white p-8 h-[64.8vh] pt-20">
+        <h1 className="grid place-items-center mb-4 font-extrabold text-6xl text-[#0069a3] ">
           Autores
         </h1>
         <Table

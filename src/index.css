@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 #root {
-  @apply bg-slate-900;
   color: white;
   max-width: 100vw;
   min-height: 100vh;

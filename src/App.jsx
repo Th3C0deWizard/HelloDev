@@ -9,9 +9,11 @@ import AuthorsList from "./routes/AuthorsList";
 import EditorArticlesHistory from "./routes/EditorArticlesHistory";
 import EditorMenu from "./routes/EditorMenu";
 import EditorReceivedArticles from "./routes/EditorReceivedArticles";
+import ForgotPassword from "./routes/ForgotPassword";
 import Login from "./routes/Login";
 import Profile from "./routes/Profile";
 import Register from "./routes/Register";
+import RestorePassword from "./routes/RestorePassword";
 import Root from "./routes/Root";
 
 function App() {
@@ -28,7 +30,15 @@ function App() {
 		},
 		{
 			path: "Login",
-			element: <Login setU={setUser} />,
+			element: <Login setU={setUser} user={user} />,
+		},
+		{
+			path: "ForgotPassword",
+			element: <ForgotPassword />,
+		},
+		{
+			path: "RestorePassword",
+			element: <RestorePassword />,
 		},
 		{
 			path: "Register",
@@ -37,7 +47,7 @@ function App() {
 		{
 			path: "/AuthorMenu",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "autor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
 					<AuthorMenu />
 				</ProtectedRoute>
 			),
@@ -45,7 +55,7 @@ function App() {
 		{
 			path: "AddArticle",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "autor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
 					<AddArticle />
 				</ProtectedRoute>
 			),
@@ -53,7 +63,7 @@ function App() {
 		{
 			path: "AuthorArticles",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "autor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
 					<AuthorArticles />
 				</ProtectedRoute>
 			),
@@ -61,7 +71,7 @@ function App() {
 		{
 			path: "Profile",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "autor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
 					<Profile />
 				</ProtectedRoute>
 			),
@@ -69,7 +79,7 @@ function App() {
 		{
 			path: "EditorMenu",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "editor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
 					<EditorMenu />
 				</ProtectedRoute>
 			),
@@ -77,7 +87,7 @@ function App() {
 		{
 			path: "EditorReceivedArticles",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "editor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
 					<EditorReceivedArticles />
 				</ProtectedRoute>
 			),
@@ -85,7 +95,7 @@ function App() {
 		{
 			path: "EditorArticlesHistory",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "editor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
 					<EditorArticlesHistory />
 				</ProtectedRoute>
 			),
@@ -93,7 +103,7 @@ function App() {
 		{
 			path: "AuthorsList",
 			element: (
-				<ProtectedRoute isAllowed={user?.rol === "editor"}>
+				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
 					<AuthorsList />
 				</ProtectedRoute>
 			),

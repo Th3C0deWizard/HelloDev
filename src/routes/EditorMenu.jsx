@@ -1,18 +1,19 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import MenuItem from "../components/Menu_Item";
 import Tittle from "../components/Tittle";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const EditorMenu = () => {
   return (
     <>
       <Header />
-      <section className="grid grid-cols-3 gap-2 bg-slate-900 p-2 pt-10 pb-20">
+      <section className="grid grid-cols-3 gap-2 bg-[#e6f2ff] p-2 pt-20 pb-20">
         <div className="flex col-start-2 justify-center">
           <Tittle tittle="Menú" acronym="Editor" factor={5} />
         </div>
-        <p className="flex justify-center col-start-2 my-4 text-xl text-gray-500 mb-15">
-          Tienes todas estas posibilidades a tú mano:
+        <p className="text-center col-start-2 my-2 text-xl text-[#212529] font-sans">
+          Gestiona, revisa, evalua y lista articulos, además de listar todos los
+          autores de la revista:
         </p>
 
         <div className="col-start-1">

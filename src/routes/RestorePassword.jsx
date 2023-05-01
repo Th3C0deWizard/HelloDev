@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Input from "../components/Input";
 
-const ForgotPassword = () => {
+const RestorePassword = () => {
   return (
     <>
       <Header />
@@ -30,14 +30,22 @@ const ForgotPassword = () => {
             <div className="w-full rounded-lg shadow sm:max-w-md bg-slate-900 border-gray-700 bg-opacity-70">
               <div className="p-8 space-y-4">
                 <h1 className="grid place-items-center text-3xl font-bold text-white">
-                  Recover your password
+                  Set New Password
                 </h1>
                 <form>
                   <Input
-                    label="Your email"
-                    type="email"
-                    id="email"
-                    placeholder="name@company.com"
+                    label="New Password"
+                    type="password"
+                    id="newPassword"
+                    placeholder="••••••••"
+                    style=""
+                  />
+                  <br />
+                  <Input
+                    label="Confirm Password"
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="••••••••"
                     style=""
                   />
                   <Link to="/Login">
@@ -45,22 +53,15 @@ const ForgotPassword = () => {
                       type="submit"
                       className="my-5 w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                       onClick={() => {
-                        alert("Email sent");
+                        alert("Contraseña Cambiada");
                       }}
                     >
-                      Send
+                      Save New Password
                     </button>
                   </Link>
 
                   <p className="grid place-items-center text-sm font-light text-amber-300">
-                    Don’t have an account yet?{" "}
-                    <a
-                      href="/register"
-                      className="font-medium text-amber-400 hover:underline"
-                    >
-                      {" "}
-                      Sign up
-                    </a>
+                    Please remember the password{" "}
                   </p>
                 </form>
               </div>
@@ -73,4 +74,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default RestorePassword;

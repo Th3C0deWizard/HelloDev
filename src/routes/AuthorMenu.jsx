@@ -7,12 +7,13 @@ const AuthorMenu = () => {
   return (
     <>
       <Header />
-      <section className="grid grid-cols-3 gap-2 bg-slate-900 p-2 pt-10 pb-20">
-        <div className="flex col-start-2 justify-center">
+      <section className="grid grid-cols-4 gap-2 bg-[#e6f2ff] p-2 pt-20 pb-20">
+        <div className="flex col-start-2 col-span-2 justify-center">
           <Tittle tittle="Menú" acronym="Autor" factor={5} />
         </div>
-        <p className="flex justify-center col-start-2 my-4 text-xl text-gray-500 mb-15">
-          Tienes todas estas posibilidades a tú mano:
+        <p className="text-center col-start-2 col-span-2 my-2 text-xl text-[#212529] font-sans">
+          Añade, edita, elimina, gestiona y envia tus articulos, además de
+          modificar tu perfil y ver tus notificaciones:
         </p>
 
         <div className="col-start-1">
@@ -29,6 +30,13 @@ const AuthorMenu = () => {
           tittle="Añadir Articulo"
           description="Adcición de nuevos articulos"
           href="/AddArticle"
+        />
+
+        <MenuItem
+          path="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"
+          tittle="Notificaciones"
+          description="Notificaciones sobre los articulos evaluados"
+          href="/AuthorNotifications"
         />
 
         <MenuItem

@@ -1,4 +1,3 @@
-import Button from "../components/Button";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Table from "../components/Table";
@@ -7,9 +6,9 @@ const EditorArticlesHistory = () => {
   return (
     <>
       <Header />
-      <section className="bg-slate-900 min-h-[64.8vh]">
+      <section className="bg-white min-h-[64.8vh] pt-20">
         <div className="flex flex-col place-items-center justify-center pb-10">
-          <h1 className="grid place-items-center mb-4 font-extrabold text-5xl text-white mt-5">
+          <h1 className="grid place-items-center mb-4 font-extrabold text-6xl text-[#0069a3]">
             Historial de Articulos
           </h1>
           <Table
@@ -32,12 +31,7 @@ const EditorArticlesHistory = () => {
             ]}
           />
 
-          <div className="grid grid-cols-5 gap-2">
-            <Button
-              text="Revertir Estado"
-              style=" col-start-3 bg-amber-200 text-amber-600 hover:bg-amber-300 focus:ring-amber-800 shadow-amber-800/80"
-            />
-          </div>
+          <div className="grid grid-cols-5 gap-2"></div>
         </div>
       </section>
       <Footer />

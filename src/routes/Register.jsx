@@ -8,7 +8,7 @@ const Register = () => {
     <>
       <Header />
       <div
-        className="flex"
+        className="flex pt-20"
         style={{
           background:
             "url(https://images.unsplash.com/photo-1616763355603-9755a640a287?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80)",
@@ -80,6 +80,31 @@ const Register = () => {
                     placeholder="Lastnames"
                     style=""
                   />
+                  <Input
+                    label="Nombre de Uusario"
+                    type="username"
+                    id="username"
+                    placeholder="bowser"
+                    style=""
+                  />
+                  <div>
+                    <label
+                      for=""
+                      className="block mb-2 text-sm font-medium text-white"
+                    >
+                      Nacionalidad
+                    </label>
+                    <select
+                      className="col-start-1 h-10 sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                      required
+                    >
+                      <option selected>Choose a country</option>
+                      <option value="US">United States</option>
+                      <option value="CA">Canada</option>
+                      <option value="FR">France</option>
+                      <option value="DE">Germany</option>
+                    </select>
+                  </div>
                   <Input
                     label="Telefono"
                     type="number"

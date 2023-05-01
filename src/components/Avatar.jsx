@@ -1,14 +1,17 @@
 import Icon from "./Icon";
-import { Link } from "react-router-dom";
+import DropdownAvatar from "./DropdownAvatar";
+import { useState } from "react";
 
 function Avatar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <button
         id="dropdownUserAvatarButton"
-        data-dropdown-toggle="dropdownAvatar"
-        className="flex justify-center items-center mr-5 bg-[#0069a3] rounded-full focus:ring-4 focus:ring-blue-600"
+        className="relative flex justify-center items-center mr-5 ml-24 bg-[#0069a3]"
         type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
       >
         <Icon
           path="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
@@ -18,36 +21,7 @@ function Avatar() {
         />
       </button>
 
-      <div
-        id="dropdownAvatar"
-        className="z-10 hidden divide-y divide-gray-600 rounded-lg shadow w-44 bg-gray-700"
-      >
-        <div className="px-4 py-3 text-sm text-white">
-          <div>Name Username</div>
-          <div className="font-medium truncate">name@hellodev.com</div>
-        </div>
-        <ul
-          className="py-2 text-sm text-gray-200"
-          aria-labelledby="dropdownUserAvatarButton"
-        >
-          <li>
-            <Link
-              to="/AuthorMenu"
-              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
-            >
-              Menu
-            </Link>
-          </li>
-        </ul>
-        <div className="py-2">
-          <Link
-            to="/Login"
-            className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white"
-          >
-            Sign in
-          </Link>
-        </div>
-      </div>
+      {isOpen && <DropdownAvatar />}
     </>
   );
 }
