@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import AddArticle from "./routes/AddArticle";
 import ArticleView from "./routes/ArticleView";
@@ -16,8 +16,23 @@ import Register from "./routes/Register";
 import RestorePassword from "./routes/RestorePassword";
 import Root from "./routes/Root";
 
+const ROLES = {
+	EDITOR: 0,
+	AUTOR: 0,
+};
+
 function App() {
-	const [user, setUser] = useState(null);
+	const initialUser = JSON.parse(localStorage.getItem("user"));
+	const [user, setUser] = useState(initialUser);
+	// const navigate = useNavigate();
+
+	useEffect(() => {
+		if (initialUser !== user) {
+			if ((user.rol = ROLES.AUTOR)) location.replace("/AuthorMenu");
+			else if ((user.rol = ROLES.EDITOR)) location.replace("/EditorMenu");
+			else location.replace("/");
+		}
+	}, [user]);
 
 	const router = createBrowserRouter([
 		{
@@ -30,7 +45,7 @@ function App() {
 		},
 		{
 			path: "Login",
-			element: <Login setU={setUser} user={user} />,
+			element: <Login setUser={setUser} user={user} />,
 		},
 		{
 			path: "ForgotPassword",
@@ -45,7 +60,7 @@ function App() {
 			element: <Register />,
 		},
 		{
-			path: "/AuthorMenu",
+			path: "AuthorMenu",
 			element: (
 				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
 					<AuthorMenu />

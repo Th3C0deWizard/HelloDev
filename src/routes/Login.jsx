@@ -3,14 +3,46 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Input from "../components/Input";
+import useForm from "../hooks/useForm";
 
 const Login = (props) => {
-	const login = () =>
-		props.setU({
-			id: 1,
-			name: "John",
-			rol: ["autor"],
-		});
+	const [fieldStates, actionStates] = useForm(
+		{
+			email: "",
+			contraseña: "",
+		},
+		{
+			post: async (fieldValues, setDoAction) => {
+				console.log(fieldValues);
+				try {
+					const response = await fetch("http://localhost:3000/autores/login", {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify(fieldValues),
+					});
+					if (!response.ok) console.error("error al Añadir el articulo");
+					const data = await response.json();
+					if (data.autenticado === true) {
+						const userData = {
+							id: data.id,
+							nombres: data.nombres,
+							rol: data.rol,
+						};
+						localStorage.setItem("user", JSON.stringify(userData));
+						alert(`Bienvenido ${data.nombres}`);
+						props.setUser(userData);
+					} else {
+						alert("Usuario o contraseña incorrectos");
+					}
+					console.log(data);
+				} catch (error) {
+					console.error(error);
+				} finally {
+					setDoAction(false);
+				}
+			},
+		},
+	);
 
 	return (
 		<>
@@ -40,13 +72,14 @@ const Login = (props) => {
 								<h1 className="grid place-items-center text-3xl font-bold text-white">
 									Sign in to your account
 								</h1>
-								<form className="space-y-4 md:space-y-6" action="#">
+								<div className="space-y-4 md:space-y-6" action="#">
 									<Input
 										label="Your email"
 										type="email"
 										id="email"
 										placeholder="name@company.com"
 										style=""
+										onChange={(e) => fieldStates.email[1](e.target.value)}
 									/>
 									<Input
 										label="Your password"
@@ -54,6 +87,7 @@ const Login = (props) => {
 										id="password"
 										placeholder="••••••••"
 										style=""
+										onChange={(e) => fieldStates.contraseña[1](e.target.value)}
 									/>
 
 									<div className="flex items-center justify-between">
@@ -65,7 +99,7 @@ const Login = (props) => {
 												required
 											/>
 											<label
-												for="remember"
+												htmlFor="remember"
 												className="ml-3 text-sm text-gray-500 dark:text-gray-300"
 											>
 												Remember me
@@ -78,15 +112,13 @@ const Login = (props) => {
 											Forgot password?
 										</Link>
 									</div>
-									<Link to="/AuthorMenu">
-										<button
-											type="submit"
-											onClick={login}
-											className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-[#F4D73B] font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2"
-										>
-											Login into your account
-										</button>
-									</Link>
+									<button
+										type="submit"
+										className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-[#F4D73B] font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2"
+										onClick={(e) => actionStates.post[1](true)}
+									>
+										Login into your account
+									</button>
 
 									<p className="grid place-items-center text-sm font-light text-[#F4D73B]">
 										Don’t have an account yet?{" "}
@@ -98,7 +130,7 @@ const Login = (props) => {
 											Sign up
 										</Link>
 									</p>
-								</form>
+								</div>
 							</div>
 						</div>
 					</div>
