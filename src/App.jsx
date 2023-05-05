@@ -15,6 +15,7 @@ import Profile from "./routes/Profile";
 import Register from "./routes/Register";
 import RestorePassword from "./routes/RestorePassword";
 import Root from "./routes/Root";
+import Header from "./components/Header";
 
 function App() {
 	const [user, setUser] = useState(null);
@@ -22,91 +23,77 @@ function App() {
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <Root />,
-		},
-		{
-			path: "ArticleView",
-			element: <ArticleView />,
-		},
-		{
-			path: "Login",
-			element: <Login setU={setUser} user={user} />,
-		},
-		{
-			path: "ForgotPassword",
-			element: <ForgotPassword />,
-		},
-		{
-			path: "RestorePassword",
-			element: <RestorePassword />,
-		},
-		{
-			path: "Register",
-			element: <Register />,
-		},
-		{
-			path: "/AuthorMenu",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
-					<AuthorMenu />
-				</ProtectedRoute>
-			),
-		},
-		{
-			path: "AddArticle",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
-					<AddArticle />
-				</ProtectedRoute>
-			),
-		},
-		{
-			path: "AuthorArticles",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
-					<AuthorArticles />
-				</ProtectedRoute>
-			),
-		},
-		{
-			path: "Profile",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "autor"}>
-					<Profile />
-				</ProtectedRoute>
-			),
-		},
-		{
-			path: "EditorMenu",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
-					<EditorMenu />
-				</ProtectedRoute>
-			),
-		},
-		{
-			path: "EditorReceivedArticles",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
-					<EditorReceivedArticles />
-				</ProtectedRoute>
-			),
-		},
-		{
-			path: "EditorArticlesHistory",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
-					<EditorArticlesHistory />
-				</ProtectedRoute>
-			),
-		},
-		{
-			path: "AuthorsList",
-			element: (
-				<ProtectedRoute isAllowed={!!user && user.rol === "editor"}>
-					<AuthorsList />
-				</ProtectedRoute>
-			),
+			element: <Header setU={setUser} user={user} />,
+			children: [{
+				path: "/",
+				element: <Root />,
+			},
+			{
+				path: "ArticleView",
+				element: <ArticleView />,
+			},
+			{
+				path: "Login",
+				element: <Login setU={setUser} user={user} />,
+			},
+			{
+				path: "ForgotPassword",
+				element: <ForgotPassword />,
+			},
+			{
+				path: "RestorePassword",
+				element: <RestorePassword />,
+			},
+			{
+				path: "Register",
+				element: <Register />,
+			},
+			{ 
+				path: "/", 
+				element: <ProtectedRoute isAllowed={!!user && user.rol === "editor"}/>,
+				children: [
+					{
+						path: "EditorMenu",
+						element: <EditorMenu />,
+					},
+					{
+						path: "EditorReceivedArticles",
+						element: <EditorReceivedArticles />,
+					},
+					{
+						path: "EditorArticlesHistory",
+						element: <EditorArticlesHistory />,
+					},
+					{
+						path: "AuthorsList",
+						element: <AuthorsList />,
+					},
+				],
+			},	
+			{
+				path: "/",
+				element: <ProtectedRoute isAllowed={!!user && user.rol === "autor"}/>,
+				children: [
+					{
+						path: "AuthorMenu",
+						element: <AuthorMenu />,
+					},
+					{
+						path: "AddArticle",
+						element: <AddArticle />,
+					},
+					{
+						path: "AuthorArticles",
+						element: <AuthorArticles user = {user}/>,
+					},
+					{
+						path: "Profile",
+						element: <Profile />,
+					},
+				],
+	
+			},
+			],
 		},
 	]);
 

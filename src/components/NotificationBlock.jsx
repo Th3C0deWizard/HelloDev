@@ -2,14 +2,14 @@ import { useState } from "react";
 import DropdownNotification from "./DropdownNotification";
 import Icon from "./Icon";
 
-function NotificationBlock() {
+function NotificationBlock({user}) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<>
 			<button
 				id="dropdownNotificationButton"
-				className="relative pt-1 inline-flex items-center ml-auto text-sm font-medium text-center"
+				className="absolute right-20 top-3"
 				type="button"
 				onClick={() => setIsOpen((prev) => !prev)}
 			>
@@ -21,7 +21,7 @@ function NotificationBlock() {
 				/>
 			</button>
 
-			{isOpen && <DropdownNotification />}
+			{isOpen && <DropdownNotification user={user}/>}
 		</>
 	);
 }

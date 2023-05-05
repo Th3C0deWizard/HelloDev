@@ -1,20 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Input from "../components/Input";
 
 const Login = (props) => {
 	const login = () =>
 		props.setU({
 			id: 1,
-			name: "John",
-			rol: ["autor"],
+			username: "John",
+			email: "johntravoltaz.@autonoma.edu.co",
+			rol: "autor",
 		});
 
 	return (
 		<>
-			<Header />
 			<div
 				className="flex justify-center pt-20"
 				style={{

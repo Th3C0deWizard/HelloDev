@@ -1,12 +1,10 @@
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Input from "../components/Input";
 import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
     <>
-      <Header />
       <div
         className="flex pt-20"
         style={{

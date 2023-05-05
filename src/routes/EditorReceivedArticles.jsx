@@ -1,11 +1,9 @@
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Table from "../components/Table";
 
 const EditorReceivedArticles = () => {
   return (
     <>
-      <Header />
       <section className=" bg-white p-8 h-[64.8vh] pt-20">
         <h1 className="grid place-items-center mb-4 font-extrabold text-6xl text-[#0069a3]">
           Articulos Recibidos

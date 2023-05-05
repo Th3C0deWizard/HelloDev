@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 function Notification() {
   return (
     <>
-      <Link
-        to="/AuthorArticles"
+      <section
         className="flex px-4 py-3 bg-gray-700 hover:bg-gray-700"
       >
         <div className="flex-shrink-0">
@@ -25,7 +24,7 @@ function Notification() {
           </div>
           <div className="text-xs text-blue-500">A few moments ago</div>
         </div>
-      </Link>
+      </section>
     </>
   );
 }

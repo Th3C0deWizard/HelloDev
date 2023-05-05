@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Input from "../components/Input";
 import InputFile from "../components/InputFile";
 
@@ -32,7 +31,6 @@ const AddArticle = () => {
 
 	return (
 		<>
-			<Header />
 			<div
 				className="flex justify-center min-h-[93vh] bg-cover pt-20"
 				style={{

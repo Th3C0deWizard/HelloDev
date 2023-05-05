@@ -2,7 +2,7 @@ import Notification from "./Notification";
 import Icon from "./Icon";
 import { Link } from "react-router-dom";
 
-function dropdownNotification() {
+function dropdownNotification({user={user}}) {
   return (
     <div
       id="dropdownNotification"
@@ -16,7 +16,7 @@ function dropdownNotification() {
         <Notification />
       </div>
       <Link
-        to="/AuthorArticles"
+        to={user.role == "editor" ? "/EditorReceivedArticles" : "/AuthorNotifications"}
         className="block py-2 text-sm font-medium text-center rounded-b-lg bg-gray-700 hover:bg-gray-700 text-white"
       >
         <div className="inline-flex items-center ">

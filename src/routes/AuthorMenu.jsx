@@ -1,12 +1,10 @@
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import MenuItem from "../components/Menu_Item";
 import Tittle from "../components/Tittle";
 
 const AuthorMenu = () => {
   return (
     <>
-      <Header />
       <section className="grid grid-cols-4 gap-2 bg-[#e6f2ff] p-2 pt-20 pb-20">
         <div className="flex col-start-2 col-span-2 justify-center">
           <Tittle tittle="Menú" acronym="Autor" factor={5} />
@@ -15,15 +13,13 @@ const AuthorMenu = () => {
           Añade, edita, elimina, gestiona y envia tus articulos, además de
           modificar tu perfil y ver tus notificaciones:
         </p>
-
-        <div className="col-start-1">
+        <div/>
           <MenuItem
             path="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25H6A2.25 2.25 0 013.75 18V6A2.25 2.25 0 016 3.75h1.5m9 0h-9"
             tittle="Mis Articulos"
             description="Gestión y envio de articulos"
             href="/AuthorArticles"
           />
-        </div>
 
         <MenuItem
           path="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
