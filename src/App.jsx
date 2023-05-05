@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import AddArticle from "./routes/AddArticle";
 import ArticleView from "./routes/ArticleView";
@@ -16,88 +16,99 @@ import Register from "./routes/Register";
 import RestorePassword from "./routes/RestorePassword";
 import Root from "./routes/Root";
 import Header from "./components/Header";
+import { ROLES } from "./const.js";
 
 function App() {
-	const [user, setUser] = useState(null);
+  const initialUser = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(initialUser);
+  // const navigate = useNavigate();
 
-	const router = createBrowserRouter([
-		{
-			path: "/",
-			element: <Header setU={setUser} user={user} />,
-			children: [{
-				path: "/",
-				element: <Root />,
-			},
-			{
-				path: "ArticleView",
-				element: <ArticleView />,
-			},
-			{
-				path: "Login",
-				element: <Login setU={setUser} user={user} />,
-			},
-			{
-				path: "ForgotPassword",
-				element: <ForgotPassword />,
-			},
-			{
-				path: "RestorePassword",
-				element: <RestorePassword />,
-			},
-			{
-				path: "Register",
-				element: <Register />,
-			},
-			{ 
-				path: "/", 
-				element: <ProtectedRoute isAllowed={!!user && user.rol === "editor"}/>,
-				children: [
-					{
-						path: "EditorMenu",
-						element: <EditorMenu />,
-					},
-					{
-						path: "EditorReceivedArticles",
-						element: <EditorReceivedArticles />,
-					},
-					{
-						path: "EditorArticlesHistory",
-						element: <EditorArticlesHistory />,
-					},
-					{
-						path: "AuthorsList",
-						element: <AuthorsList />,
-					},
-				],
-			},	
-			{
-				path: "/",
-				element: <ProtectedRoute isAllowed={!!user && user.rol === "autor"}/>,
-				children: [
-					{
-						path: "AuthorMenu",
-						element: <AuthorMenu />,
-					},
-					{
-						path: "AddArticle",
-						element: <AddArticle />,
-					},
-					{
-						path: "AuthorArticles",
-						element: <AuthorArticles user = {user}/>,
-					},
-					{
-						path: "Profile",
-						element: <Profile />,
-					},
-				],
-	
-			},
-			],
-		},
-	]);
+  useEffect(() => {
+    if (initialUser !== user) {
+      if ((user.rol = ROLES.AUTOR)) location.replace("/AuthorMenu");
+      else if ((user.rol = ROLES.EDITOR)) location.replace("/EditorMenu");
+      else location.replace("/");
+    }
+  }, [user]);
 
-	return <RouterProvider router={router} />;
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Header setU={setUser} user={user} />,
+      children: [
+        {
+          path: "/",
+          element: <Root />,
+        },
+        {
+          path: "ArticleView",
+          element: <ArticleView />,
+        },
+        {
+          path: "Login",
+          element: <Login setUser={setUser} user={user} />,
+        },
+        {
+          path: "ForgotPassword",
+          element: <ForgotPassword />,
+        },
+        {
+          path: "RestorePassword",
+          element: <RestorePassword />,
+        },
+        {
+          path: "Register",
+          element: <Register />,
+        },
+        {
+          path: "/",
+          element: <ProtectedRoute isAllowed={user?.rol === ROLES.EDITOR} />,
+          children: [
+            {
+              path: "EditorMenu",
+              element: <EditorMenu />,
+            },
+            {
+              path: "EditorReceivedArticles",
+              element: <EditorReceivedArticles />,
+            },
+            {
+              path: "EditorArticlesHistory",
+              element: <EditorArticlesHistory />,
+            },
+            {
+              path: "AuthorsList",
+              element: <AuthorsList />,
+            },
+          ],
+        },
+        {
+          path: "/",
+          element: <ProtectedRoute isAllowed={user?.rol === ROLES.AUTOR} />,
+          children: [
+            {
+              path: "AuthorMenu",
+              element: <AuthorMenu />,
+            },
+            {
+              path: "AddArticle",
+              element: <AddArticle />,
+            },
+            {
+              path: "AuthorArticles",
+              element: <AuthorArticles user={user} />,
+            },
+            {
+              path: "Profile",
+              element: <Profile />,
+            },
+          ],
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

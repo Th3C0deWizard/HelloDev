@@ -1,8 +1,9 @@
 import Notification from "./Notification";
 import Icon from "./Icon";
 import { Link } from "react-router-dom";
+import { ROLES } from "../const.js";
 
-function dropdownNotification({user={user}}) {
+function dropdownNotification({ user = { user } }) {
   return (
     <div
       id="dropdownNotification"
@@ -16,7 +17,11 @@ function dropdownNotification({user={user}}) {
         <Notification />
       </div>
       <Link
-        to={user.role == "editor" ? "/EditorReceivedArticles" : "/AuthorNotifications"}
+        to={
+          user.role === ROLES.EDITOR
+            ? "/EditorReceivedArticles"
+            : "/AuthorNotifications"
+        }
         className="block py-2 text-sm font-medium text-center rounded-b-lg bg-gray-700 hover:bg-gray-700 text-white"
       >
         <div className="inline-flex items-center ">

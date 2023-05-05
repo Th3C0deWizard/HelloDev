@@ -6,7 +6,7 @@ const SearchBar = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<form className="flex justify-center">
+		<div className="flex justify-center">
 			<button
 				id="dropdown-button"
 				className="relative inline-flex items-center px-4 text-sm font-medium text-center text-white bg-blue-600 rounded-l-lg hover:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
@@ -48,7 +48,7 @@ const SearchBar = () => {
 					color="white"
 				/>
 			</button>
-		</form>
+		</div>
 	);
 };
 

@@ -1,8 +1,43 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Input from "../components/Input";
-import { Link } from "react-router-dom";
 
 const Register = () => {
+  const [nombres, setNombres] = useState("");
+  const [apellidos, setApellidos] = useState("");
+  const [nombreUsuario, setNombreUsuario] = useState("");
+  const [nacionalidad, setNacionalidad] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [email, setEmail] = useState("");
+  const [contraseña, setContraseña] = useState("");
+  const [confirmarContraseña, setConfirmarContraseña] = useState("");
+
+  const handleSubmit = () => {
+    const data = {
+      nombres: nombres,
+      apellidos: apellidos,
+      nombreUsuario: nombreUsuario,
+      nacionalidad: nacionalidad,
+      telefono: telefono,
+      email: email,
+      contraseña: contraseña,
+      confirmarContraseña: confirmarContraseña,
+    };
+    console.log(JSON.stringify(data));
+    fetch("http://localhost:3000/autores", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) console.error("error al Añadir el articulo");
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  };
+
   return (
     <>
       <div
@@ -62,7 +97,7 @@ const Register = () => {
               <h1 className="grid place-items-center font-bold md:text-3xl text-white">
                 Sign Up to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <div className="space-y-4 md:space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   <Input
                     label="Nombre Completo"
@@ -70,6 +105,7 @@ const Register = () => {
                     id="name"
                     placeholder="Complete Name"
                     style=""
+                    onChange={(e) => setNombres(e.target.value)}
                   />
                   <Input
                     label="Apellidos"
@@ -77,6 +113,7 @@ const Register = () => {
                     id="lastname"
                     placeholder="Lastnames"
                     style=""
+                    onChange={(e) => setApellidos(e.target.value)}
                   />
                   <Input
                     label="Nombre de Uusario"
@@ -84,10 +121,11 @@ const Register = () => {
                     id="username"
                     placeholder="bowser"
                     style=""
+                    onChange={(e) => setNombreUsuario(e.target.value)}
                   />
                   <div>
                     <label
-                      for=""
+                      htmlFor=""
                       className="block mb-2 text-sm font-medium text-white"
                     >
                       Nacionalidad
@@ -95,8 +133,10 @@ const Register = () => {
                     <select
                       className="col-start-1 h-10 sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                       required
+                      onChange={(e) => setNacionalidad(e.target.value)}
+                      defaultValue={"df"}
                     >
-                      <option selected>Choose a country</option>
+                      <option value="df">Choose a country</option>
                       <option value="US">United States</option>
                       <option value="CA">Canada</option>
                       <option value="FR">France</option>
@@ -109,6 +149,7 @@ const Register = () => {
                     id="phoneNumber"
                     placeholder="+57 000 0000000"
                     style=""
+                    onChange={(e) => setTelefono(e.target.value)}
                   />
                   <Input
                     label="Your email"
@@ -116,6 +157,7 @@ const Register = () => {
                     id="email"
                     placeholder="name@company.com"
                     style=""
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
 
@@ -125,6 +167,7 @@ const Register = () => {
                   id="password"
                   placeholder="••••••••"
                   style=""
+                  onChange={(e) => setContraseña(e.target.value)}
                 />
                 <Input
                   label="Confirmar Contraseña"
@@ -132,10 +175,12 @@ const Register = () => {
                   id="confirmPassword"
                   placeholder="••••••••"
                   style=""
+                  onChange={(e) => setConfirmarContraseña(e.target.value)}
                 />
                 <button
                   type="submit"
                   className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-md p-2"
+                  onClick={handleSubmit}
                 >
                   Create your account
                 </button>
@@ -149,7 +194,7 @@ const Register = () => {
                     Log in
                   </Link>
                 </p>
-              </form>
+              </div>
             </div>
           </div>
         </div>
