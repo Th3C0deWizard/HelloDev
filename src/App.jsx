@@ -14,6 +14,7 @@ import Login from "./routes/Login";
 import Profile from "./routes/Profile";
 import Register from "./routes/Register";
 import RestorePassword from "./routes/RestorePassword";
+import AuthorNotifications from "./routes/AuthorNotifications";
 import Root from "./routes/Root";
 import Header from "./components/Header";
 import { ROLES } from "./const.js";
@@ -25,9 +26,10 @@ function App() {
 
   useEffect(() => {
     if (initialUser !== user) {
-      if ((user.rol = ROLES.AUTOR)) location.replace("/AuthorMenu");
-      else if ((user.rol = ROLES.EDITOR)) location.replace("/EditorMenu");
+      if (user.rol == ROLES.AUTOR) location.replace("/AuthorMenu");
+      else if (user.rol == ROLES.EDITOR) location.replace("/EditorMenu");
       else location.replace("/");
+      console.log(user);
     }
   }, [user]);
 
@@ -70,11 +72,11 @@ function App() {
             },
             {
               path: "EditorReceivedArticles",
-              element: <EditorReceivedArticles />,
+              element: <EditorReceivedArticles user={user} />,
             },
             {
               path: "EditorArticlesHistory",
-              element: <EditorArticlesHistory />,
+              element: <EditorArticlesHistory user={user} />,
             },
             {
               path: "AuthorsList",
@@ -92,7 +94,7 @@ function App() {
             },
             {
               path: "AddArticle",
-              element: <AddArticle />,
+              element: <AddArticle user={user} />,
             },
             {
               path: "AuthorArticles",
@@ -100,7 +102,11 @@ function App() {
             },
             {
               path: "Profile",
-              element: <Profile />,
+              element: <Profile autor={user} setAutor={setUser} />,
+            },
+            {
+              path: "AuthorNotifications",
+              element: <AuthorNotifications user={user} />,
             },
           ],
         },

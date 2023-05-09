@@ -9,7 +9,7 @@ function MenuItem(props) {
       <p className="text-black text-center text-xl">{props.description}</p>
       <Link
         to={props.href}
-        className="mt-2 bg-[#F4D73B] text-[#0069a3] text-lg font-semibold mr-2 px-2.5 py-0.5 rounded ml-2 hover:bg-amber-400"
+        className="mt-2 bg-[#F4D73B] text-[#0069a3] text-lg font-semibold mr-2 px-2.5 py-0.5 rounded ml-2 hover:bg-amber-400 hover:scale-110 transition"
       >
         Go ahead
       </Link>

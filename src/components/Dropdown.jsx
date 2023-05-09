@@ -2,15 +2,17 @@ function Dropdown(props) {
   return (
     <div
       id="dropdown"
-      className="absolute divide-y top-14 flex flex-col place items-start -translate-x-[16.5rem] divide-gray-300 rounded-lg shadow w-44 bg-white"
+      className="absolute top-14 -translate-x-[19rem] divide-y divide-gray-300 rounded-lg shadow w-36 bg-white"
     >
       {props.list.map((item, i) => (
-        <div
-          key={i}
-          className="flex w-full justify-between p-2 hover:bg-slate-300 cursor-pointer border-l-transparent hover:border-l-blue-600 hover:border-l-4"
-        >
-          <h3 className="text-sm font-medium text-black">{item}</h3>
-        </div>
+        <section className="py-2">
+          <div
+            key={i}
+            className="w-full px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
+          >
+            {item}
+          </div>
+        </section>
       ))}
     </div>
   );

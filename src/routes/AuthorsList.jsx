@@ -1,54 +1,39 @@
 import Footer from "../components/Footer";
 import SearchBar from "../components/SearchBar";
 import Table from "../components/Table";
+import AuthorsListRow from "../components/AuthorsListRow";
+import useFetch from "../hooks/useFetch";
 
 const AuthorsList = () => {
+  const [autors, isLoading, setIsLoading] = useFetch("autores", (error) => {
+    console.error("Fallo al cargar los autores");
+  });
+
   return (
     <>
-      <section className=" bg-white p-8 h-[64.8vh] pt-20">
-        <h1 className="grid place-items-center mb-4 font-extrabold text-6xl text-[#0069a3] ">
+      <section className=" bg-white p-8 min-h-[40vh] pt-20">
+        <h1 className="grid place-items-center font-extrabold text-6xl text-[#0069a3] ">
           Autores
         </h1>
-        <Table
-          headers={[
-            "Codigos",
-            "Nombres",
-            "Apellidos",
-            "Seudónimo",
-            "Teléfono",
-            "E-mail",
-            "Fecha registro",
-          ]}
-          data={[
-            [
-              "01",
-              "Pepito",
-              "Perez Lopez",
-              "PepeLop",
-              "123456789",
-              "pepito@gmail.com",
-              "2020-10-12",
-            ],
-            [
-              "02",
-              "Pedro",
-              "Garcia Loaiza",
-              "PedroG",
-              "987654321",
-              "pedrogl@hotmail.com",
-              "2022-09-11",
-            ],
-          ]}
-          styleData={[
-            " whitespace-nowrap",
-            "",
-            "",
-            "",
-            "",
-            "text-amber-400 hover:underline cursor-pointer",
-            "",
-          ]}
-        />
+        {isLoading ? (
+          <h1>Esta cargando</h1>
+        ) : (
+          <Table
+            headers={[
+              "Id",
+              "Nombre(s)",
+              "Apellidos",
+              "Usuario",
+              "Email",
+              "Telefono",
+              "Nacionalidad",
+              "Fecha registro",
+            ]}
+            data={autors?.map((autor) => (
+              <AuthorsListRow id={autor.id_usuario} autor={autor} />
+            ))}
+          />
+        )}
         <SearchBar />
       </section>
       <Footer />

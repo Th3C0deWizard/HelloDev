@@ -22,11 +22,26 @@ const Login = (props) => {
           if (!response.ok) console.error("Error al loguearse");
           const data = await response.json();
           if (data.autenticado === true) {
-            const userData = {
-              id: data.id,
-              nombres: data.nombres,
-              rol: data.rol,
-            };
+            let userData;
+            if (data.rol === 1) {
+              userData = {
+                id: data.id,
+                nombres: data.nombres,
+                apellidos: data.apellidos,
+                nombreUsuario: data.nombreUsuario,
+                nacionalidad: data.nacionalidad,
+                telefono: data.telefono,
+                email: data.email,
+                autobiografia: data.autobiografia,
+                rol: data.rol,
+              };
+            } else {
+              userData = {
+                id: data.id,
+                nombres: data.nombres,
+                rol: data.rol,
+              };
+            }
             localStorage.setItem("user", JSON.stringify(userData));
             alert(`Bienvenido ${data.nombres}`);
             props.setUser(userData);
@@ -112,7 +127,7 @@ const Login = (props) => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-[#F4D73B] font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2"
+                    className="w-full text-white bg-amber-500 hover:bg-amber-600  hover:scale-110 transition font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2"
                     onClick={(e) => actionStates.post[1](true)}
                   >
                     Login into your account

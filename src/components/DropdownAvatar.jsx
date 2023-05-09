@@ -1,21 +1,26 @@
-import { Link } from "react-router-dom";
 import { ROLES } from "../const.js";
 
 function DropdownAvatar({ setU, action, user }) {
   return (
     <div
       id="dropdownAvatar"
-      className="absolute ml-auto top-16 right-0 divide-y divide-gray-600 rounded-lg shadow w-44 bg-gray-700"
+      className="absolute ml-auto top-16 right-2 divide-y divide-gray-300 rounded-lg shadow w-36 bg-white"
     >
       {user ? (
-        <div className="px-4 py-3 text-sm text-white">
+        <div className="px-4 py-3 text-sm text-black font-semibold ">
           <div>{user.nombres}</div>
+          <div className="flex mt-2">
+            <div className="rounded-full bg-green-500 mr-2 text-transparent">
+              oo
+            </div>
+            Online
+          </div>
         </div>
       ) : null}
       <div className="py-2">
         <a
           href="/"
-          className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white"
+          className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
           onClick={() => action(false)}
         >
           Inicio
@@ -26,7 +31,7 @@ function DropdownAvatar({ setU, action, user }) {
           <div className="py-2">
             <a
               href="/EditorMenu"
-              className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white"
+              className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
               onClick={() => action(false)}
             >
               Menu
@@ -36,7 +41,7 @@ function DropdownAvatar({ setU, action, user }) {
           <div className="py-2">
             <a
               href="/AuthorMenu"
-              className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white"
+              className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
               onClick={() => action(false)}
             >
               Menu
@@ -48,7 +53,7 @@ function DropdownAvatar({ setU, action, user }) {
       {user ? (
         <div className="py-2">
           <div
-            className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white"
+            className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
             onClick={() => {
               setU(null);
               action(false);
@@ -62,7 +67,7 @@ function DropdownAvatar({ setU, action, user }) {
         <div className="py-2">
           <a
             href="/Login"
-            className="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-600 hover:text-white"
+            className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
             onClick={() => action(false)}
           >
             Sign in

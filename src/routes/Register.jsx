@@ -179,7 +179,7 @@ const Register = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-md p-2"
+                  className="w-full text-white bg-amber-500 hover:bg-amber-600 hover:scale-95 transition font-medium rounded-lg text-md p-2"
                   onClick={handleSubmit}
                 >
                   Create your account

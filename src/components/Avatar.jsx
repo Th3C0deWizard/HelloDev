@@ -2,14 +2,14 @@ import Icon from "./Icon";
 import DropdownAvatar from "./DropdownAvatar";
 import { useState } from "react";
 
-function Avatar({setU, user}) {
+function Avatar({ setU, user }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <button
         id="dropdownUserAvatarButton"
-        className="absolute flex justify-center items-center right-5 top-2 bg-[#0069a3]"
+        className="absolute flex justify-center items-center right-5 top-2 bg-[#0069a3] hover:scale-110 transition hover:bg-[#1482be] rounded-full"
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
       >
@@ -21,7 +21,7 @@ function Avatar({setU, user}) {
         />
       </button>
 
-      {isOpen && <DropdownAvatar action={setIsOpen} setU={setU} user={user}/>}
+      {isOpen && <DropdownAvatar action={setIsOpen} setU={setU} user={user} />}
     </>
   );
 }
