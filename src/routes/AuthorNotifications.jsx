@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 import NotificationsBlock from "../components/NotificationsBlock";
 import useFetch from "../hooks/useFetch";
 
@@ -18,7 +19,7 @@ const AuthorNotifications = (props) => {
 					Notificaciones
 				</h1>
 				{isLoading ? (
-					<h1>Esta cargando</h1>
+					<Loading className="mt-10" />
 				) : (
 					<NotificationsBlock notifications={notifications} />
 				)}

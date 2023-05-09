@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const API_URL = "http://localhost:3000/";
 
-const useFetch = (url, handleError) => {
+const useFetch = (url) => {
 	const [data, setData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +20,7 @@ const useFetch = (url, handleError) => {
 				setData(gotData);
 			})
 			.catch((error) => console.error(error))
-			.finally(() => setIsLoading(false));
+			.finally(() => setTimeout(() => setIsLoading(false), 1000));
 	}, [isLoading]);
 
 	return [data, isLoading, setIsLoading];

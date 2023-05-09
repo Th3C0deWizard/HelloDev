@@ -1,13 +1,8 @@
 function Loading(props) {
 	return (
-		<div className="flex justify-between items-start bg-slate-800 w-20 h-20 border-y-2 rounded-full animate-spin">
-			<span>.</span>
-			<span>.</span>
-			<span>.</span>
-			<span>.</span>
-			<span>.</span>
-			<span>.</span>
-		</div>
+		<div
+			className={`${props.className} w-40 h-40 border-y-4 border-slate-800 rounded-full animate-spin`}
+		/>
 	);
 }
 

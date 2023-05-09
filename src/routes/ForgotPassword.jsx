@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CodeForm from "../components/CodeForm";
 import Footer from "../components/Footer";
 import Input from "../components/Input";
 import Loading from "../components/Loading";
@@ -7,6 +8,7 @@ import Loading from "../components/Loading";
 const ForgotPassword = () => {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
+	const [codeForm, setCodeForm] = useState(false);
 	const [fieldValues, setFieldValues] = useState({
 		email: "",
 	});
@@ -33,8 +35,7 @@ const ForgotPassword = () => {
 			if (!response.ok) console.error("Error al enviar el email");
 			const data = await response.json();
 			if (data.sended === true) {
-				alert("Se ha enviado un email con el codigo para recuperar la cuenta");
-				navigate("/restorePassword");
+				setCodeForm(true);
 			} else {
 				alert(`Error al enviar el email ${data.message}`);
 			}
@@ -44,6 +45,41 @@ const ForgotPassword = () => {
 			setLoading(false);
 		}
 	};
+	let form;
+	if (codeForm)
+		form = (
+			<CodeForm email={fieldValues.email} close={() => setCodeForm(false)} />
+		);
+	else
+		form = (
+			<form onSubmit={handleSubmit}>
+				<Input
+					label="Your email"
+					type="email"
+					id="email"
+					placeholder="name@company.com"
+					style=""
+					onChange={handleChange}
+				/>
+				<button
+					type="submit"
+					className="my-5 w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+				>
+					Send
+				</button>
+
+				<p className="grid place-items-center text-sm font-light text-amber-300">
+					Don’t have an account yet?{" "}
+					<a
+						href="/register"
+						className="font-medium text-amber-400 hover:underline"
+					>
+						{" "}
+						Sign up
+					</a>
+				</p>
+			</form>
+		);
 
 	return (
 		<>
@@ -67,44 +103,18 @@ const ForgotPassword = () => {
 							/>
 							{"HelloDev!"}
 						</a>
-						{loading ? (
-							<Loading />
-						) : (
-							<div className="w-full rounded-lg shadow sm:max-w-md bg-slate-900 border-gray-700 bg-opacity-70">
-								<div className="p-8 space-y-4">
-									<h1 className="grid place-items-center text-3xl font-bold text-white">
-										Recover your password
-									</h1>
-									<form onSubmit={handleSubmit}>
-										<Input
-											label="Your email"
-											type="email"
-											id="email"
-											placeholder="name@company.com"
-											style=""
-											onChange={handleChange}
-										/>
-										<button
-											type="submit"
-											className="my-5 w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-										>
-											Send
-										</button>
-
-										<p className="grid place-items-center text-sm font-light text-amber-300">
-											Don’t have an account yet?{" "}
-											<a
-												href="/register"
-												className="font-medium text-amber-400 hover:underline"
-											>
-												{" "}
-												Sign up
-											</a>
-										</p>
-									</form>
-								</div>
+						<div className="w-full rounded-lg shadow sm:max-w-md bg-slate-900 border-gray-700 bg-opacity-70">
+							<div className="flex flex-col p-8 space-y-4">
+								<h1 className="grid place-items-center text-3xl font-bold text-white">
+									Recover your password
+								</h1>
+								{loading ? (
+									<Loading className="justify-self-center self-center" />
+								) : (
+									form
+								)}
 							</div>
-						)}
+						</div>
 					</div>
 				</div>
 			</div>

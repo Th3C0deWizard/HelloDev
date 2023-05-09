@@ -3,9 +3,11 @@ import AuthorArticlesRow from "../components/AuthorArticlesRow";
 import Edit from "../components/Edit";
 import FailedAlert from "../components/FailedAlerts";
 import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 import Message from "../components/Message";
 import SuccessfullAlert from "../components/SuccessfullAlert";
 import Table from "../components/Table";
+import ImageView from "../components/imageView";
 import useFetch from "../hooks/useFetch";
 
 const AuthorArticles = (props) => {
@@ -44,6 +46,12 @@ const AuthorArticles = (props) => {
 		setIcon(icon);
 		setShowMessageN(true);
 	};
+
+	const [imageView, setImageView] = useState({
+		visible: false,
+		titulo: "",
+		imagen: "",
+	});
 
 	const [showSuccessfullAlert, setShowSuccessfullAlert] = useState(false);
 	const [sFTitle, setSFTitle] = useState("");
@@ -89,6 +97,14 @@ const AuthorArticles = (props) => {
 					close={setShowMessageN}
 				/>
 			) : null}
+			{imageView.visible ? (
+				<ImageView
+					icon="portada"
+					titulo={imageView.titulo}
+					portada={imageView.imagen}
+					close={() => setImageView({ visible: false, titulo: "", imagen: "" })}
+				/>
+			) : null}
 			{showSuccessfullAlert ? (
 				<SuccessfullAlert
 					title={sFTitle}
@@ -104,12 +120,12 @@ const AuthorArticles = (props) => {
 					close={setShowFailedAlert}
 				/>
 			) : null}
-			<section className=" bg-white p-8 min-h-[40vh] pt-20">
+			<section className="flex flex-col justify-center items-center bg-white p-8 min-h-[40vh] pt-20">
 				<h1 className="grid place-items-center font-extrabold text-6xl text-[#0069a3]">
 					Mis Articulos
 				</h1>
 				{isLoading ? (
-					<h1>Esta cargando</h1>
+					<Loading className="mt-10" />
 				) : (
 					<Table
 						id="table_autor_articles"
@@ -134,6 +150,7 @@ const AuthorArticles = (props) => {
 								showMessage={showMessage}
 								showSFAlert={showSFAlert}
 								showFAlert={showFAlert}
+								setImageView={setImageView}
 							/>
 						))}
 					/>

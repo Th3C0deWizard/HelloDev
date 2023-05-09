@@ -16,9 +16,9 @@ const ArticleSet = ({ article }) => {
 			<section className="bg-white flex flex-col justify-center items-center mb-10">
 				<Tittle tittle="ARTICULOS" acronym="UAM" factor={5} />
 			</section>
-			<section className="px-36 grid grid-cols-3 gap-x-8 gap-y-10">
+			<section className="px-36 grid grid-cols-3 gap-x-8 gap-y-10 justify-items-center items-center">
 				{isLoading ? (
-					<Loading />
+					<Loading className="col-start-2" />
 				) : (
 					articles?.map((article) => (
 						<ArticleCard key={article.id} article={article} />
