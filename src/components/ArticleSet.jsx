@@ -1,5 +1,6 @@
 import useFetch from "../hooks/useFetch";
 import ArticleCard from "./ArticleCard";
+import Loading from "./Loading";
 import Tittle from "./Tittle";
 
 const ArticleSet = ({ article }) => {
@@ -17,7 +18,7 @@ const ArticleSet = ({ article }) => {
 			</section>
 			<section className="px-36 grid grid-cols-3 gap-x-8 gap-y-10">
 				{isLoading ? (
-					<h1>Esta cargando</h1>
+					<Loading />
 				) : (
 					articles?.map((article) => (
 						<ArticleCard key={article.id} article={article} />
