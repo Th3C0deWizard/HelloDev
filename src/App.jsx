@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Header from "./components/Header";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { ROLES } from "./const.js";
 import AddArticle from "./routes/AddArticle";
 import ArticleView from "./routes/ArticleView";
 import AuthorArticles from "./routes/AuthorArticles";
@@ -16,22 +18,10 @@ import Register from "./routes/Register";
 import RestorePassword from "./routes/RestorePassword";
 import AuthorNotifications from "./routes/AuthorNotifications";
 import Root from "./routes/Root";
-import Header from "./components/Header";
-import { ROLES } from "./const.js";
 
 function App() {
   const initialUser = JSON.parse(localStorage.getItem("user"));
   const [user, setUser] = useState(initialUser);
-  // const navigate = useNavigate();
-
-  useEffect(() => {
-    if (initialUser !== user) {
-      if (user.rol == ROLES.AUTOR) location.replace("/AuthorMenu");
-      else if (user.rol == ROLES.EDITOR) location.replace("/EditorMenu");
-      else location.replace("/");
-      console.log(user);
-    }
-  }, [user]);
 
   const router = createBrowserRouter([
     {

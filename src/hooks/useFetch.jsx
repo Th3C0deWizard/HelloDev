@@ -10,20 +10,17 @@ const useFetch = (url, handleError) => {
 		if (!isLoading) return;
 
 		fetch(API_URL + url)
-			.then((response) => {
-				if (response.ok) return response.json();
-				handleError();
+			.then(async (response) => {
+				const data = await response.json();
+				if (response.ok) return data;
+				else throw new Error(data);
 			})
 			.then((gotData) => {
 				console.log(gotData);
 				setData(gotData);
 			})
 			.catch((error) => console.error(error))
-			.finally(() =>
-				setTimeout(() => {
-					setIsLoading(false);
-				}, 1000),
-			);
+			.finally(() => setIsLoading(false));
 	}, [isLoading]);
 
 	return [data, isLoading, setIsLoading];

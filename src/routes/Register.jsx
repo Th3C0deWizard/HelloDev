@@ -1,43 +1,48 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Input from "../components/Input";
 
 const Register = () => {
-  const [nombres, setNombres] = useState("");
-  const [apellidos, setApellidos] = useState("");
-  const [nombreUsuario, setNombreUsuario] = useState("");
-  const [nacionalidad, setNacionalidad] = useState("");
-  const [telefono, setTelefono] = useState("");
-  const [email, setEmail] = useState("");
-  const [contraseña, setContraseña] = useState("");
-  const [confirmarContraseña, setConfirmarContraseña] = useState("");
-
-  const handleSubmit = () => {
-    const data = {
-      nombres: nombres,
-      apellidos: apellidos,
-      nombreUsuario: nombreUsuario,
-      nacionalidad: nacionalidad,
-      telefono: telefono,
-      email: email,
-      contraseña: contraseña,
-      confirmarContraseña: confirmarContraseña,
-    };
-    console.log(JSON.stringify(data));
-    fetch("http://localhost:3000/autores", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) console.error("error al Añadir el articulo");
-        return response.json();
-      })
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [fieldValues, setFieldValues] = useState({
+    nombres: "",
+    apellidos: "",
+    nombreUsuario: "",
+    nacionalidad: "",
+    telefono: "",
+    email: "",
+    contraseña: "",
+    confirmarContraseña: "",
+  });
+  console.log(fieldValues);
+  const handleChange = (e) => {
+    setFieldValues({ ...fieldValues, [e.target.id]: e.target.value });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const response = await fetch("http://localhost:3000/autores", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fieldValues),
+      });
+      if (response.ok) {
+        alert("Usuario creado correctamente");
+        navigate("/login");
+      } else {
+        const data = await response.json();
+        alert(data.message);
+      }
+    } catch (error) {
+      alert(`Error al registrarse: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
       <div
@@ -97,31 +102,31 @@ const Register = () => {
               <h1 className="grid place-items-center font-bold md:text-3xl text-white">
                 Sign Up to your account
               </h1>
-              <div className="space-y-4 md:space-y-6">
+              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <Input
                     label="Nombre Completo"
                     type="text"
-                    id="name"
+                    id="nombres"
                     placeholder="Complete Name"
                     style=""
-                    onChange={(e) => setNombres(e.target.value)}
+                    onChange={handleChange}
                   />
                   <Input
                     label="Apellidos"
                     type="text"
-                    id="lastname"
+                    id="apellidos"
                     placeholder="Lastnames"
                     style=""
-                    onChange={(e) => setApellidos(e.target.value)}
+                    onChange={handleChange}
                   />
                   <Input
                     label="Nombre de Uusario"
                     type="username"
-                    id="username"
+                    id="nombreUsuario"
                     placeholder="bowser"
                     style=""
-                    onChange={(e) => setNombreUsuario(e.target.value)}
+                    onChange={handleChange}
                   />
                   <div>
                     <label
@@ -132,9 +137,8 @@ const Register = () => {
                     </label>
                     <select
                       className="col-start-1 h-10 sm:text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                      required
-                      onChange={(e) => setNacionalidad(e.target.value)}
                       defaultValue={"df"}
+                      onChange={handleChange}
                     >
                       <option value="df">Choose a country</option>
                       <option value="US">United States</option>
@@ -146,10 +150,10 @@ const Register = () => {
                   <Input
                     label="Telefono"
                     type="number"
-                    id="phoneNumber"
+                    id="telefono"
                     placeholder="+57 000 0000000"
                     style=""
-                    onChange={(e) => setTelefono(e.target.value)}
+                    onChange={handleChange}
                   />
                   <Input
                     label="Your email"
@@ -157,30 +161,29 @@ const Register = () => {
                     id="email"
                     placeholder="name@company.com"
                     style=""
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleChange}
                   />
                 </div>
 
                 <Input
                   label="Contraseña"
                   type="password"
-                  id="password"
+                  id="contraseña"
                   placeholder="••••••••"
                   style=""
-                  onChange={(e) => setContraseña(e.target.value)}
+                  onChange={handleChange}
                 />
                 <Input
                   label="Confirmar Contraseña"
                   type="password"
-                  id="confirmPassword"
+                  id="confirmarContraseña"
                   placeholder="••••••••"
                   style=""
-                  onChange={(e) => setConfirmarContraseña(e.target.value)}
+                  onChange={handleChange}
                 />
                 <button
                   type="submit"
-                  className="w-full text-white bg-amber-500 hover:bg-amber-600 hover:scale-95 transition font-medium rounded-lg text-md p-2"
-                  onClick={handleSubmit}
+                  className="w-full text-white bg-amber-500 hover:bg-amber-600 focus:ring-4 focus:ring-amber-300 font-medium rounded-lg text-md p-2"
                 >
                   Create your account
                 </button>
@@ -194,7 +197,7 @@ const Register = () => {
                     Log in
                   </Link>
                 </p>
-              </div>
+              </form>
             </div>
           </div>
         </div>
