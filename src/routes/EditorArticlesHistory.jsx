@@ -8,7 +8,7 @@ import Table from "../components/Table";
 import useFetch from "../hooks/useFetch";
 
 const EditorArticlesHistory = (props) => {
-	const [notifications, isLoading, setIsLoading] = useFetch(
+	const [notifications, setNotifications, isLoading, setIsLoading] = useFetch(
 		`notificaciones/editor/historial/${props.user.id}`,
 		console.log(props.user.id),
 		(error) => {

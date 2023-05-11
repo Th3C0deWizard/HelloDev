@@ -4,7 +4,7 @@ import NotificationsBlock from "../components/NotificationsBlock";
 import useFetch from "../hooks/useFetch";
 
 const AuthorNotifications = (props) => {
-	const [notifications, isLoading, setIsLoading] = useFetch(
+	const [notifications, setNotifications, isLoading, setIsLoading] = useFetch(
 		`notificaciones/autor/${props.user.id}`,
 		console.log(props.user.id),
 		(error) => {

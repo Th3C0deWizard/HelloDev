@@ -8,7 +8,7 @@ import Table from "../components/Table";
 import useFetch from "../hooks/useFetch";
 
 const EditorReceivedArticles = (props) => {
-	const [notifications, isLoading, setIsLoading] = useFetch(
+	const [notifications, setNotifications, isLoading, setIsLoading] = useFetch(
 		`notificaciones/editor/${props.user.id}`,
 		(error) => {
 			console.error(error);

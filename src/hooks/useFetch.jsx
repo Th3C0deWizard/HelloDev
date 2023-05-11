@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 
 const API_URL = "http://localhost:3000/";
 
-const useFetch = (url) => {
+const useFetch = (url, condition = true) => {
 	const [data, setData] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
+		if (!condition) return;
 		if (!isLoading) return;
 
 		fetch(API_URL + url)
@@ -16,14 +17,13 @@ const useFetch = (url) => {
 				else throw new Error(data);
 			})
 			.then((gotData) => {
-				console.log(gotData);
 				setData(gotData);
 			})
 			.catch((error) => console.error(error))
 			.finally(() => setTimeout(() => setIsLoading(false), 1000));
 	}, [isLoading]);
 
-	return [data, isLoading, setIsLoading];
+	return [data, setData, isLoading, setIsLoading];
 };
 
 export default useFetch;

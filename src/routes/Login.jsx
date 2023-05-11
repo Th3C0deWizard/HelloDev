@@ -6,11 +6,13 @@ import Loading from "../components/Loading";
 import { ROLES } from "../const";
 
 const Login = (props) => {
+	const rememberMeData = JSON.parse(localStorage.getItem("rememberMe"));
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
+	const [rememberMe, setRememberMe] = useState(false);
 	const [fieldValues, setFieldValues] = useState({
-		email: "",
-		contraseña: "",
+		email: rememberMeData ? rememberMeData.emailOrUsername : "",
+		contraseña: rememberMeData ? rememberMeData.password : "",
 	});
 
 	const handleChange = (e) => {
@@ -30,6 +32,14 @@ const Login = (props) => {
 			if (response.ok) {
 				props.setUser(data);
 				localStorage.setItem("user", JSON.stringify(data));
+				if (rememberMe)
+					localStorage.setItem(
+						"rememberMe",
+						JSON.stringify({
+							emailOrUsername: fieldValues.email,
+							password: fieldValues.contraseña,
+						}),
+					);
 				alert(`Bienvenido ${data.nombreUsuario}`);
 				if (data.rol === ROLES.AUTOR) navigate("/authorMenu");
 				else if (data.rol === ROLES.EDITOR) navigate("/editorMenu");
@@ -82,6 +92,7 @@ const Login = (props) => {
 											id="email"
 											placeholder="name@company.com"
 											style=""
+											value={fieldValues.email}
 											onChange={handleChange}
 										/>
 										<Input
@@ -90,6 +101,7 @@ const Login = (props) => {
 											id="contraseña"
 											placeholder="••••••••"
 											style=""
+											value={fieldValues.contraseña}
 											onChange={handleChange}
 										/>
 
@@ -99,6 +111,7 @@ const Login = (props) => {
 													type="checkbox"
 													value=""
 													className="w-4 h-4 rounded bg-gray-700 border-gray-600 focus:bg-amber-400 focus:border-amber-400 focus:ring-amber-300"
+													onChange={(e) => setRememberMe(e.target.checked)}
 												/>
 												<label
 													htmlFor="remember"

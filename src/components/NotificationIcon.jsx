@@ -5,7 +5,7 @@ import DropdownNotification from "./DropdownNotification";
 import Icon from "./Icon";
 
 function NotificationIcon({ user }) {
-	const [notifications, isLoading, setIsLoading] = useFetch(
+	const [notifications, setNotifications, isLoading, setIsLoading] = useFetch(
 		`notificaciones/${user.rol === ROLES.EDITOR ? "editor" : "autor"}/${
 			user.id
 		}`,

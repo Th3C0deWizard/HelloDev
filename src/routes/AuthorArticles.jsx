@@ -11,7 +11,7 @@ import ImageView from "../components/imageView";
 import useFetch from "../hooks/useFetch";
 
 const AuthorArticles = (props) => {
-	const [articles, isLoading, setIsLoading] = useFetch(
+	const [articles, setArticles, isLoading, setIsLoading] = useFetch(
 		`articulos/autor/${props.user.id}`,
 		console.log(props.user.id),
 		(error) => {
@@ -19,7 +19,7 @@ const AuthorArticles = (props) => {
 		},
 	);
 
-	const [editors, isLoadingEditor, setIsLoadingEditor] = useFetch(
+	const [editors, setEditors, isLoadingEditor, setIsLoadingEditor] = useFetch(
 		"editores",
 		(error) => {
 			console.error("Fallo al cargar los editores");

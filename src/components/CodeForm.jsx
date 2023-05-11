@@ -28,7 +28,7 @@ const CodeForm = (props) => {
 			);
 			const data = await response.json();
 			if (response.ok) {
-				navigate("/restorePassword", { state: { id: data.id } });
+				navigate("/restorePassword", { state: { id: data.id_usuario } });
 			} else {
 				alert(`${data.message}`);
 			}
@@ -51,7 +51,7 @@ const CodeForm = (props) => {
 					Ingresa el codigo de recuperación
 				</h1>
 
-				<sectio className="flex m-5 items-center w-[90%]">
+				<section className="flex m-5 items-center w-[90%]">
 					<label className="flex items-center justify-center h-10 rounded-xl cursor-pointer shadow w-full">
 						<p className="text-sm text-black bg-gray-300 rounded-l-xl p-2 h-full">
 							Codigo
@@ -67,7 +67,7 @@ const CodeForm = (props) => {
 							required
 						/>
 					</label>
-				</sectio>
+				</section>
 				<div className="text-center">
 					<button
 						className="bg-[#0069a3] hover:bg-blue-500 text-white font-medium text-lg p-2  text-center rounded-xl shadow-lg hover:scale-110 transition"
