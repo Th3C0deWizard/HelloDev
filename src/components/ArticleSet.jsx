@@ -1,9 +1,10 @@
 import useFetch from "../hooks/useFetch";
 import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
+import Login from "./Login";
 import Tittle from "./Tittle";
 
-const ArticleSet = ({ article }) => {
+const ArticleSet = ({ setUser, showLogin, setShowLogin }) => {
 	const [articles, isLoading, setIsLoading] = useFetch(
 		"articulos/by?filter=id_estado&filterValue=3",
 		(error) => {
@@ -13,6 +14,9 @@ const ArticleSet = ({ article }) => {
 
 	return (
 		<section className="min-h-[93vh] bg-white pb-20 pt-20">
+			{showLogin ? (
+				<Login setUser={setUser} setShowLogin={setShowLogin} />
+			) : null}
 			<section className="bg-white flex flex-col justify-center items-center mb-10">
 				<Tittle tittle="ARTICULOS" acronym="UAM" factor={5} />
 			</section>

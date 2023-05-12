@@ -1,10 +1,14 @@
 import ArticleSet from "../components/ArticleSet";
 import Footer from "../components/Footer";
 
-function Root() {
+function Root({ setUser, showLogin, setShowLogin }) {
 	return (
 		<>
-			<ArticleSet />
+			<ArticleSet
+				setUser={setUser}
+				showLogin={showLogin}
+				setShowLogin={setShowLogin}
+			/>
 			<Footer />
 		</>
 	);

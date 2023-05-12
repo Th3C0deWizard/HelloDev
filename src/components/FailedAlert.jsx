@@ -1,6 +1,6 @@
 function FailedAlert(props) {
 	return (
-		<div className="fixed inset-0 flex justify-center top-20">
+		<div className="fixed inset-0 z-20 flex justify-center top-20">
 			<section className="flex items-center justify-center rounded-xl shadow w-90 h-20 bg-white p-5">
 				<img
 					src="./src/components/assets/failded.png"
@@ -17,7 +17,7 @@ function FailedAlert(props) {
 				<img
 					src="./src/components/assets/close.png"
 					alt="check"
-					className="h-8 ml-5 hover:scale-110 transition"
+					className="h-8 ml-5 hover:scale-110 transition cursor-pointer"
 					onClick={() => {
 						props.close(false);
 					}}

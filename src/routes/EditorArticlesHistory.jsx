@@ -1,7 +1,8 @@
 import { useState } from "react";
 import EditorHistoryRows from "../components/EditorHistoryRows";
-import FailedAlert from "../components/FailedAlerts";
+import FailedAlert from "../components/FailedAlert";
 import Footer from "../components/Footer";
+import InputMessage from "../components/InputMessage";
 import Message from "../components/Message";
 import SuccessfullAlert from "../components/SuccessfullAlert";
 import Table from "../components/Table";
@@ -49,6 +50,28 @@ const EditorArticlesHistory = (props) => {
 		setShowFailedAlert(true);
 	};
 
+	const [showInputMessage, setShowInputMessage] = useState(false);
+	const [notification, setNotification] = useState("");
+	const handleShowInputMessage = (
+		article,
+		estado,
+		id_estado,
+		receptor,
+		titulo,
+		fecha,
+	) => {
+		setNotification({
+			emisor: props.user.id,
+			receptor: receptor,
+			article: article,
+			id_estado: id_estado,
+			new_estado: estado,
+			article_titulo: titulo,
+			fecha: fecha,
+		});
+		setShowInputMessage(true);
+	};
+
 	return (
 		<>
 			{showMessageN ? (
@@ -73,6 +96,19 @@ const EditorArticlesHistory = (props) => {
 					title={fFTitle}
 					message={fFMessage}
 					close={setShowFailedAlert}
+				/>
+			) : null}
+			{showInputMessage ? (
+				<InputMessage
+					object={notification}
+					load={setIsLoading}
+					showSFAlert={showSFAlert}
+					showFAlert={showFAlert}
+					titulo="Reversión"
+					success="revertido"
+					fail="No se pudo revertir el articulo"
+					close={setShowInputMessage}
+					icon="message"
 				/>
 			) : null}
 			<section className="bg-white min-h-[40vh] pt-20">
@@ -104,6 +140,7 @@ const EditorArticlesHistory = (props) => {
 									showMessage={showMessage}
 									showSFAlert={showSFAlert}
 									showFAlert={showFAlert}
+									showInputMessage={handleShowInputMessage}
 								/>
 							))}
 						/>

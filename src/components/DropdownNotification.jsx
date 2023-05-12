@@ -6,14 +6,15 @@ function dropdownNotification({ notifications, user }) {
 	return (
 		<div
 			id="dropdownNotification"
-			className="absolute ml-auto divide-y top-16 right-4 bg-white divide-gray-300 rounded-lg shadow"
+			className="absolute ml-auto divide-y top-16 right-4 bg-white divide-gray-300 rounded-lg shadow w-80"
 		>
 			<div className="block px-4 py-2 font-medium text-center rounded-t-lg text-black">
-				Notifications
+				Notificaciones
 			</div>
 			{notifications !== undefined && notifications != null ? (
 				<div className="divide-y divide-gray-300">
 					{notifications?.map((item, i) =>
+						// rome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 						i > 4 ? null : <NotificationItem key={i} notification={item} />,
 					)}
 				</div>

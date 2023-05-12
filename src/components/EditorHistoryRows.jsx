@@ -1,47 +1,4 @@
 function EditorHistoryRows(props) {
-	const revert = () => {
-		const message = prompt("Escriba un mensaje para el autor");
-
-		fetch("http://localhost:3000/notificaciones", {
-			method: "POST",
-			contentType: "multipart/form-data",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				id_emisor: props.notification.id_receptor,
-				id_receptor: props.notification.id_emisor,
-				mensaje: message,
-				id_articulo_notificacion: props.notification.id_articulo,
-				id_estado: props.notification.id_estado,
-				new_estado: 6,
-			}),
-		})
-			.then(async (response) => {
-				const message = await response.text();
-				if (response.ok) return message;
-				else throw new Error(message);
-			})
-			.then((response) => {
-				props.load(true);
-				props.showSFAlert(
-					"Reversión exitosa",
-					props.notification.titulo,
-					"fue revertido exitosamente",
-				);
-			})
-			.catch((error) => {
-				props.showFAlert(
-					"Reversión fallida",
-					`No se pudo revertir el articulo / ${error.message.substring(
-						12,
-						error.message.length - 2,
-					)}`,
-				);
-				console.log(error);
-			});
-	};
-
 	return (
 		<tr key={props.id} className="bg-white  hover:bg-[#e6f2ff] text-black ">
 			<td className="px-6 py-3 font-medium whitespace-nowrap">
@@ -80,6 +37,7 @@ function EditorHistoryRows(props) {
 						props.showMessage(
 							"Resumen de",
 							props.notification.resumen,
+							props.notification.id_articulo,
 							props.notification.titulo,
 							"resume",
 						);
@@ -107,7 +65,14 @@ function EditorHistoryRows(props) {
 					type="button"
 					className="bg-[#0069a3] hover:bg-blue-500 text-white font-medium text-lg py-1.5 px-1  text-center rounded shadow-lg hover:scale-110 transition"
 					onClick={(e) => {
-						revert();
+						props.showInputMessage(
+							props.notification.id_articulo,
+							6,
+							props.notification.id_estado,
+							props.notification.id_emisor,
+							props.notification.titulo,
+							props.notification.fecha,
+						);
 					}}
 				>
 					Revertir Estado

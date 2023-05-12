@@ -61,16 +61,25 @@ function Edit(props) {
 
 	return (
 		<main className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
-			<div className="bg-[#e6f2ff] p-2 rounded-xl w-1/3 min-h-1/3 grid place-items-center">
-				<h1 className="font-semibold text-center text-xl text-gray-700">
-					Welcome back
-				</h1>
-				<section className="flex m-5 items-center">
+			<div className="bg-white p-2 rounded-xl w-1/3 min-h-1/3 grid place-items-center">
+				<section className="grid grid-cols-3 w-full">
+					<h1 className="font-bold text-center text-3xl text-[#0069a3]	col-start-2">
+						Editar
+					</h1>
+					{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+					<img
+						src="./src/components/assets/close.png"
+						alt="check"
+						className="h-8 hover:scale-110 transition cursor-pointer ml-auto"
+						onClick={props.onClose}
+					/>
+				</section>
+				<section className="flex m-4 items-center">
 					<label className="flex items-center justify-center h-10 rounded-xl cursor-pointer shadow hover:scale-105 transition">
-						<p className="text-sm text-black bg-gray-300 rounded-l-xl p-2 h-full">
-							Seleccionar Archivo
+						<p className="text-sm text-white bg-[#0069a3] rounded-l-xl p-2 h-full">
+							Articulo
 						</p>
-						<p className="text-sm text-black p-2">{phPdf}</p>
+						<p className="text-sm text-black px-2">{phPdf}</p>
 						<input type="file" className="hidden" onChange={handleChangePdf} />
 					</label>
 					<img
@@ -79,10 +88,10 @@ function Edit(props) {
 						className="h-12 ml-5 hover:scale-110 transition"
 					/>
 				</section>
-				<section className="flex m-5 items-center">
+				<section className="flex m-2 items-center">
 					<label className="flex items-center justify-center h-10 rounded-xl cursor-pointer shadow hover:scale-105 transition">
-						<p className="text-sm text-black bg-gray-300 rounded-l-xl p-2 h-full">
-							Seleccionar Archivo
+						<p className="text-sm text-white bg-[#0069a3] rounded-l-xl p-2 h-full">
+							Portada
 						</p>
 						<p className="text-sm text-black p-2">{phC}</p>
 						<input
@@ -97,9 +106,9 @@ function Edit(props) {
 						className="h-12 ml-5 hover:scale-110 transition"
 					/>
 				</section>
-				<section className="flex m-5 items-center w-[90%]">
+				<section className="flex m-2 items-center w-[90%]">
 					<label className="flex items-center justify-center h-10 rounded-xl cursor-pointer shadow w-full">
-						<p className="text-sm text-black bg-gray-300 rounded-l-xl p-2 h-full">
+						<p className="text-sm text-white bg-[#0069a3] rounded-l-xl p-2 h-full">
 							Titulo
 						</p>
 						<input
@@ -112,31 +121,25 @@ function Edit(props) {
 						/>
 					</label>
 				</section>
-				<section className="m-5 items-center shadow rounded-xl w-[90%]">
-					<p className="text-sm text-black bg-gray-300 rounded-t-xl p-2">
+				<section className="m-2 items-center shadow rounded-xl w-[90%] h-28">
+					<p className="text-sm text-white bg-[#0069a3] rounded-t-xl p-2">
 						Resumen
 					</p>
 					<textarea
 						type="text"
-						className="text-black rounded-b-xl p-2 w-full h-full"
+						className="text-black rounded-b-xl w-full h-full p-2 shadow resize-none"
 						defaultValue={resumen}
 						onChange={(e) => {
 							setResumen(e.target.value);
 						}}
 					/>
 				</section>
-				<section className="text-center">
+				<section className="text-center mt-10">
 					<button
-						className="bg-[#0069a3] hover:bg-blue-500 text-white font-medium text-lg p-2  text-center rounded-xl shadow-lg hover:scale-110 transition"
+						className="bg-[#F4D73B] hover:bg-[#fae360] text-[#0069a3] font-medium text-lg py-1.5 px-2 text-center rounded-xl shadow-lg hover:scale-110 transition"
 						onClick={save}
 					>
 						Save
-					</button>
-					<button
-						className="ml-10 bg-[#0069a3] hover:bg-blue-500 text-white font-medium text-lg p-2 text-center rounded-xl shadow-lg hover:scale-110 transition"
-						onClick={props.onClose}
-					>
-						Close
 					</button>
 				</section>
 			</div>

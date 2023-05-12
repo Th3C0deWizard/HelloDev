@@ -1,6 +1,6 @@
 function Message(props) {
 	return (
-		<div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
+		<div className="fixed inset-0 z-10 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
 			<section className="flex items-center justify-center rounded-xl shadow w-90 h-20 bg-white p-5">
 				<img
 					src={`./src/components/assets/${props.icon}.png`}
@@ -17,7 +17,7 @@ function Message(props) {
 				<img
 					src="./src/components/assets/close.png"
 					alt="check"
-					className="h-8 ml-5 hover:scale-110 transition"
+					className="h-8 ml-5 hover:scale-110 transition cursor-pointer"
 					onClick={() => {
 						props.close(false);
 					}}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import EditorReceivedRows from "../components/EditorReceivedRows";
-import FailedAlert from "../components/FailedAlerts";
+import FailedAlert from "../components/FailedAlert";
 import Footer from "../components/Footer";
+import InputMessage from "../components/InputMessage";
 import Message from "../components/Message";
 import SuccessfullAlert from "../components/SuccessfullAlert";
 import Table from "../components/Table";
@@ -48,6 +49,28 @@ const EditorReceivedArticles = (props) => {
 		setShowFailedAlert(true);
 	};
 
+	const [showInputMessage, setShowInputMessage] = useState(false);
+	const [notification, setNotification] = useState("");
+	const handleShowInputMessage = (
+		article,
+		estado,
+		id_estado,
+		receptor,
+		titulo,
+		fecha,
+	) => {
+		setNotification({
+			emisor: props.user.id,
+			receptor: receptor,
+			article: article,
+			id_estado: id_estado,
+			new_estado: estado,
+			article_titulo: titulo,
+			fecha: fecha,
+		});
+		setShowInputMessage(true);
+	};
+
 	return (
 		<>
 			{showMessageN ? (
@@ -72,6 +95,19 @@ const EditorReceivedArticles = (props) => {
 					title={fFTitle}
 					message={fFMessage}
 					close={setShowFailedAlert}
+				/>
+			) : null}
+			{showInputMessage ? (
+				<InputMessage
+					object={notification}
+					load={setIsLoading}
+					showSFAlert={showSFAlert}
+					showFAlert={showFAlert}
+					titulo="Evaluación"
+					success={estado === 3 ? "aceptado" : "rechazado"}
+					fail="No se pudo envaluar el articulo"
+					close={setShowInputMessage}
+					icon="message"
 				/>
 			) : null}
 			<section className=" bg-white p-8 min-h-[40vh] pt-20">
@@ -102,6 +138,7 @@ const EditorReceivedArticles = (props) => {
 								load={setIsLoading}
 								showSFAlert={showSFAlert}
 								showFAlert={showFAlert}
+								showInputMessage={handleShowInputMessage}
 							/>
 						))}
 					/>

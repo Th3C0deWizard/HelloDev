@@ -1,47 +1,4 @@
 function AuthorArticlesRows(props) {
-	const sendArticle = () => {
-		const message = prompt("Escriba un mensaje para el editor");
-
-		fetch("http://localhost:3000/notificaciones", {
-			method: "POST",
-			contentType: "multipart/form-data",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				id_emisor: props.autor,
-				id_receptor: props.editor,
-				mensaje: message,
-				id_articulo_notificacion: props.article.id,
-				id_estado: props.article.id_estado,
-				new_estado: 2,
-			}),
-		})
-			.then(async (response) => {
-				const message = await response.text();
-				if (response.ok) return message;
-				else throw new Error(message);
-			})
-			.then((response) => {
-				props.load(true);
-				props.showSFAlert(
-					"Envio exitoso",
-					props.article.titulo,
-					"fue enviado al editor exitosamente",
-				);
-			})
-			.catch((error) => {
-				props.showFAlert(
-					"Envio fallido",
-					`No se pudo enviar el articulo / ${error.message.substring(
-						12,
-						error.message.length - 2,
-					)}`,
-				);
-				console.log(error);
-			});
-	};
-
 	const deleteArticle = async () => {
 		await fetch(`http://localhost:3000/articulos/${props.article.id}`, {
 			method: "DELETE",
@@ -131,7 +88,7 @@ function AuthorArticlesRows(props) {
 					type="button"
 					className="bg-[#0069a3] hover:bg-blue-500 text-white font-medium text-lg py-1.5 px-1  text-center rounded shadow-lg hover:scale-110 transition"
 					onClick={(e) => {
-						sendArticle();
+						props.showInputMessage(props.article, 2);
 					}}
 				>
 					Enviar

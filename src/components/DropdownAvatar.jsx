@@ -1,6 +1,6 @@
 import { ROLES } from "../const.js";
 
-function DropdownAvatar({ setU, action, user }) {
+function DropdownAvatar({ setU, action, user, setShowLogin }) {
 	return (
 		<div
 			id="dropdownAvatar"
@@ -29,34 +29,58 @@ function DropdownAvatar({ setU, action, user }) {
 			</div>
 			{user ? (
 				user.rol === ROLES.EDITOR ? (
-					<div className="py-2">
-						{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-						<a
-							href="/EditorMenu"
-							className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
-							onClick={() => action(false)}
-						>
-							Menu
-						</a>
-					</div>
+					<>
+						<div className="py-2">
+							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
+							<a
+								href="/EditorArticlesHistory"
+								className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
+								onClick={() => action(false)}
+							>
+								Historial Articulos
+							</a>
+						</div>
+						<div className="py-2">
+							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
+							<a
+								href="/AuthorsList"
+								className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
+								onClick={() => action(false)}
+							>
+								Autores
+							</a>
+						</div>
+					</>
 				) : (
-					<div className="py-2">
-						{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-						<a
-							href="/AuthorMenu"
-							className="block px-4 py-2  text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
-							onClick={() => action(false)}
-						>
-							Menu
-						</a>
-					</div>
+					<>
+						<div className="py-2">
+							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
+							<a
+								href="/AuthorArticles"
+								className="block px-4 py-2  text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
+								onClick={() => action(false)}
+							>
+								Mis Articulos
+							</a>
+						</div>
+						<div className="py-2">
+							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
+							<a
+								href="/Profile"
+								className="block px-4 py-2  text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
+								onClick={() => action(false)}
+							>
+								Perfil
+							</a>
+						</div>
+					</>
 				)
 			) : null}
 
 			{user ? (
 				<div className="py-2">
 					<button
-						className="text-left block px-4 py-2 w-full text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
+						className="text-left block px-4 py-2 w-full text-sm text-black  hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
 						onClick={() => {
 							setU(null);
 							action(false);
@@ -66,16 +90,17 @@ function DropdownAvatar({ setU, action, user }) {
 						Sign out
 					</button>
 				</div>
-			) : (
+			) : window.location.pathname === "/register" ? null : (
 				<div className="py-2">
-					{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-					<a
-						href="/Login"
+					<button
 						className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
-						onClick={() => action(false)}
+						onClick={() => {
+							action(false);
+							setShowLogin(true);
+						}}
 					>
 						Sign in
-					</a>
+					</button>
 				</div>
 			)}
 		</div>
