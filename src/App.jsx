@@ -77,7 +77,7 @@ function App() {
 					children: [
 						{
 							path: "AuthorArticles",
-							element: <AuthorArticles id={user?.id} />,
+							element: <AuthorArticles user={user} />,
 						},
 						{
 							path: "Profile",

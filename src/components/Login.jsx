@@ -31,8 +31,8 @@ const Login = (props) => {
 				localStorage.setItem("user", JSON.stringify(data));
 				props.setShowLogin(false);
 				alert(`Bienvenido ${data.nombreUsuario}`);
-				if (data.rol !== ROLES.AUTOR || data.rol !== ROLES.EDITOR)
-					alert(`Error al iniciar sesión: ${data.message}`);
+			}else{
+				alert(`Error al iniciar sesión: ${data.message}`);
 			}
 		} catch (error) {
 			alert(`Error al iniciar sesión: ${error.message}`);
@@ -41,7 +41,7 @@ const Login = (props) => {
 		}
 	};
 	return (
-		<main className="fixed inset-0 z-10 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
+		<main className="fixed inset-0 z-20 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
 			{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 			<img
 				src="./src/components/assets/close.png"

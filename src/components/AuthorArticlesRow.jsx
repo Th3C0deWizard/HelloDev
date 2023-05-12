@@ -42,13 +42,20 @@ function AuthorArticlesRows(props) {
 				{props.article.fecha_creacion.substring(0, 10).replaceAll("-", "/")}
 			</td>
 			<td className="px-6 py-3 font-medium whitespace-nowrap">
-				<a href={props.article.portada} target="_blank" rel="noreferrer">
-					<img
-						src="./src/components/assets/portada.png"
-						alt="portada"
-						className="h-12 hover:scale-110 transition"
-					/>
-				</a>
+				{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+				<img
+					typeof="button"
+					src="./src/components/assets/portada.png"
+					alt="portada"
+					className="h-12 hover:scale-110 transition cursor-pointer"
+					onClick={() => {
+						props.setImageView({
+							visible: true,
+							titulo: props.article.titulo,
+							imagen: props.article.portada,
+						});
+					}}
+				/>
 			</td>
 			<td className="px-6 py-3 font-medium whitespace-nowrap">
 				<button

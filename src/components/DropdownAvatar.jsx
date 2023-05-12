@@ -93,7 +93,7 @@ function DropdownAvatar({ setU, action, user, setShowLogin }) {
 			) : window.location.pathname === "/register" ? null : (
 				<div className="py-2">
 					<button
-						className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
+						className="block w-full text-left px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
 						onClick={() => {
 							action(false);
 							setShowLogin(true);

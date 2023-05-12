@@ -39,7 +39,7 @@ function Notification({ key, item }) {
 				<a
 					href={`http://localhost:3000/articulos/${item.id_articulo}.pdf`}
 					target="_blank"
-					className="rounded-full flex items-center justify-center text-gray-500 font-semibold bg-transparent border-2 border-gray-400 hover:bg-red-400 hover:text-white hover:border-red-600 hover:scale-105 transition"
+					className="rounded-full flex items-center justify-center w-32 ml-auto text-gray-500 font-semibold bg-transparent border-2 border-gray-400 hover:bg-red-400 hover:text-white hover:border-red-600 hover:scale-105 transition"
 					rel="noreferrer"
 				>
 					<img
@@ -47,7 +47,7 @@ function Notification({ key, item }) {
 						alt="pdf"
 						className="h-6 mr-2"
 					/>
-					{item.titulo}
+					PDF
 				</a>
 			</section>
 		</div>

@@ -5,21 +5,23 @@ import Edit from "../components/Edit";
 import FailedAlert from "../components/FailedAlert";
 import Footer from "../components/Footer";
 import InputMessage from "../components/InputMessage";
+import Loading from "../components/Loading";
 import Message from "../components/Message";
 import SuccessfullAlert from "../components/SuccessfullAlert";
 import Table from "../components/Table";
+import ImageView from "../components/imageView";
 import useFetch from "../hooks/useFetch";
 
 const AuthorArticles = (props) => {
-	const [articles, isLoading, setIsLoading] = useFetch(
-		`articulos/autor/${props.id}`,
-		console.log(props.id),
+	const [articles, setArticles, isLoading, setIsLoading] = useFetch(
+		`articulos/autor/${props.user.id}`,
+		console.log(props.user.id),
 		(error) => {
 			console.error("Fallo al cargar los articulos");
 		},
 	);
 
-	const [editors, isLoadingEditor, setIsLoadingEditor] = useFetch(
+	const [editors, setEditors, isLoadingEditor, setIsLoadingEditor] = useFetch(
 		"editores",
 		(error) => {
 			console.error("Fallo al cargar los editores");
@@ -47,6 +49,12 @@ const AuthorArticles = (props) => {
 		setShowMessageN(true);
 	};
 
+	const [imageView, setImageView] = useState({
+		visible: false,
+		titulo: "",
+		imagen: "",
+	});
+
 	const [showSuccessfullAlert, setShowSuccessfullAlert] = useState(false);
 	const [sFTitle, setSFTitle] = useState("");
 	const [nameArticle, setnameArticle] = useState("");
@@ -72,7 +80,7 @@ const AuthorArticles = (props) => {
 	const [article, setArticle] = useState({});
 	const handleShowInputMessage = (article, estado) => {
 		setArticle({
-			emisor: props.id,
+			emisor: props.user.id,
 			receptor: editors ? editors[0]["id_editor"] : 10,
 			article: article.id,
 			id_estado: article.id_estado,
@@ -92,7 +100,7 @@ const AuthorArticles = (props) => {
 					onClose={handleOnClose}
 					show={showEdit}
 					article={editArticle}
-					id_autor={props.id}
+					id_autor={props.user.id}
 					load={setIsLoading}
 					showSFAlert={showSFAlert}
 					showFAlert={showFAlert}
@@ -105,6 +113,14 @@ const AuthorArticles = (props) => {
 					emisor={emisor}
 					icon={icon}
 					close={setShowMessageN}
+				/>
+			) : null}
+			{imageView.visible ? (
+				<ImageView
+					icon="portada"
+					titulo={imageView.titulo}
+					portada={imageView.imagen}
+					close={() => setImageView({ visible: false, titulo: "", imagen: "" })}
 				/>
 			) : null}
 			{showSuccessfullAlert ? (
@@ -124,7 +140,7 @@ const AuthorArticles = (props) => {
 			) : null}
 			{showAddArticle ? (
 				<AddArticle
-					id={props.id}
+					id={props.user.id}
 					setShowAddArticle={setShowAddArticle}
 					showSFAlert={showSFAlert}
 					showFAlert={showFAlert}
@@ -149,7 +165,7 @@ const AuthorArticles = (props) => {
 					Mis Articulos
 				</h1>
 				{isLoading ? (
-					<h1>Esta cargando</h1>
+					<Loading className="mt-10" />
 				) : (
 					<Table
 						id="table_autor_articles"
@@ -167,7 +183,7 @@ const AuthorArticles = (props) => {
 							<AuthorArticlesRow
 								key={article.id}
 								article={article}
-								autor={props.id}
+								autor={props.user.id}
 								editor={editors ? editors[0]["id_editor"] : 10}
 								load={setIsLoading}
 								showEdit={handleSetEditArticle}
@@ -175,6 +191,7 @@ const AuthorArticles = (props) => {
 								showSFAlert={showSFAlert}
 								showFAlert={showFAlert}
 								showInputMessage={handleShowInputMessage}
+								setImageView={setImageView}
 							/>
 						))}
 					/>

@@ -1,13 +1,12 @@
 import { Outlet } from "react-router-dom";
-import SearchBar from "../components/SearchBar";
 import Avatar from "./Avatar";
 import NotificationIcon from "./NotificationIcon";
 
 const Header = ({ setU, user, children, setShowLogin }) => {
 	return (
 		<>
-			<div className="z-10 fixed w-full bg-slate-900">
-				<header className="h-15 text-white flex bg-[#0069a3]">
+			<div className="z-20 fixed w-full bg-slate-900">
+				<header className="h-16 text-white flex bg-[#0069a3]">
 					<a className="text-2xl font-bold hover:text-[#ffc107] flex " href="/">
 						<img
 							className="ml-5 h-[62px] w-[110px]"
@@ -15,11 +14,6 @@ const Header = ({ setU, user, children, setShowLogin }) => {
 							alt="Logo"
 						/>
 					</a>
-					{window.location.pathname === "/" ? (
-						<div className="w-full pt-1.5">
-							<SearchBar />
-						</div>
-					) : null}
 					{user ? <NotificationIcon user={user} /> : null}
 					<Avatar setU={setU} user={user} setShowLogin={setShowLogin} />
 				</header>

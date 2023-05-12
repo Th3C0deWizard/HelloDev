@@ -198,7 +198,7 @@ const Register = () => {
 								<p className="grid place-items-center text-sm font-medium text-amber-300">
 									¿Ya tienes una cuenta?
 									<Link
-										to="/login"
+										to="/"
 										className="font-medium text-amber-400 hover:underline"
 									>
 										{" "}

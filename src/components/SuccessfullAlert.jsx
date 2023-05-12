@@ -1,6 +1,6 @@
 function SuccessfullAlert(props) {
 	return (
-		<div className="fixed inset-0 z-20 flex justify-center top-20">
+		<div className="fixed inset-0 z-30 flex justify-center top-20">
 			<section className="flex items-center justify-center rounded-xl shadow w-90 h-20 bg-white p-5">
 				<img
 					src="./src/components/assets/check.png"
