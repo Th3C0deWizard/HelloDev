@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ROLES } from "../const.js";
 import Icon from "./Icon";
 import NotificationItem from "./NotificationItem";
@@ -21,8 +22,8 @@ function dropdownNotification({ notifications, user }) {
 			) : null}
 			<div className="py-2 hover:bg-[#e6f2ff] hover:rounded-b-lg transition">
 				{user ? (
-					<a
-						href={
+					<Link
+						to={
 							user.rol === ROLES.EDITOR
 								? "/EditorReceivedArticles"
 								: "/AuthorNotifications"
@@ -38,7 +39,7 @@ function dropdownNotification({ notifications, user }) {
 							/>
 						</div>
 						View all
-					</a>
+					</Link>
 				) : (
 					mull
 				)}

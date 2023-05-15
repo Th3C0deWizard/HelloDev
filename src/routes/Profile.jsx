@@ -216,17 +216,17 @@ const Profile = ({ autor, setAutor }) => {
 					<section className="flex">
 						{isLoading ? (
 							<Loading />
-						) : articles.length > 0 ? (
+						) : articles?.length > 0 ? (
 							articles.map((article, i) => {
 								if (i < 3) {
 									return (
-										<div className="flex flex-col items-center m-2">
+										<div className="flex flex-col items-center">
 											<img
-												className="w-64 h-40 rounded-lg object-cover"
+												className="w-64 h-40 rounded-lg object-cover m-4"
 												src={article.portada}
 												alt=""
 											/>
-											<div className="text-blue-600 font-bold text-2xl">
+											<div className="text-blue-600 font-bold text-2xl text-center">
 												{article.titulo}
 											</div>
 										</div>

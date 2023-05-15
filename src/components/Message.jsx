@@ -1,7 +1,7 @@
 function Message(props) {
 	return (
 		<div className="fixed inset-0 z-30 bg-black bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
-			<section className="flex items-center justify-center rounded-xl shadow w-90 h-20 bg-white p-5">
+			<section className="flex items-center justify-center rounded-xl shadow max-w-5xl bg-white p-5">
 				<img
 					src={`./src/components/assets/${props.icon}.png`}
 					alt="check"
@@ -11,7 +11,7 @@ function Message(props) {
 					<h1 className="font-bold text-left text-xl text-blue-700">
 						{`${props.titulo} ${props.emisor} `}
 					</h1>
-					<p className="text-left text-gray-700">{props.message}</p>
+					<p className="text-justify text-gray-700">{props.message}</p>
 				</section>
 				{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 				<img

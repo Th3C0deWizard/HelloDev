@@ -94,7 +94,7 @@ const AuthorArticles = (props) => {
 	return (
 		<>
 			{!showEdit ? (
-				<h1>Esta cargando</h1>
+				null
 			) : (
 				<Edit
 					onClose={handleOnClose}
@@ -160,12 +160,12 @@ const AuthorArticles = (props) => {
 					icon="message"
 				/>
 			) : null}
-			<section className=" bg-white p-8 min-h-[40vh] pt-20">
+			<section className=" bg-white p-8 min-h-[40vh] pt-20 flex flex-col">
 				<h1 className="grid place-items-center font-extrabold text-6xl text-[#0069a3]">
 					Mis Articulos
 				</h1>
 				{isLoading ? (
-					<Loading className="mt-10" />
+					<Loading className="m-10 self-center" />
 				) : (
 					<Table
 						id="table_autor_articles"

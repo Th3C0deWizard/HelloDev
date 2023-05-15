@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ROLES } from "../const.js";
 
 function DropdownAvatar({ setU, action, user, setShowLogin }) {
@@ -19,59 +20,59 @@ function DropdownAvatar({ setU, action, user, setShowLogin }) {
 			) : null}
 			<div className="py-2">
 				{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-				<a
-					href="/"
+				<Link
+					to="/"
 					className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
 					onClick={() => action(false)}
 				>
 					Inicio
-				</a>
+				</Link>
 			</div>
 			{user ? (
 				user.rol === ROLES.EDITOR ? (
 					<>
 						<div className="py-2">
 							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-							<a
-								href="/EditorArticlesHistory"
+							<Link
+								to="/EditorArticlesHistory"
 								className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
 								onClick={() => action(false)}
 							>
 								Historial Articulos
-							</a>
+							</Link>
 						</div>
 						<div className="py-2">
 							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-							<a
-								href="/AuthorsList"
+							<Link
+								to="/AuthorsList"
 								className="block px-4 py-2 text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
 								onClick={() => action(false)}
 							>
 								Autores
-							</a>
+							</Link>
 						</div>
 					</>
 				) : (
 					<>
 						<div className="py-2">
 							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-							<a
-								href="/AuthorArticles"
+							<Link
+								to="/AuthorArticles"
 								className="block px-4 py-2  text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
 								onClick={() => action(false)}
 							>
 								Mis Articulos
-							</a>
+							</Link>
 						</div>
 						<div className="py-2">
 							{/* rome-ignore lint/a11y/useValidAnchor: <explanation> */}
-							<a
-								href="/Profile"
+							<Link
+								to="/Profile"
 								className="block px-4 py-2  text-sm text-black cursor-pointer hover:bg-[#0069a3] hover:bg-opacity-80 hover:text-white hover:font-semibold hover:scale-95 transition rounded-lg"
 								onClick={() => action(false)}
 							>
 								Perfil
-							</a>
+							</Link>
 						</div>
 					</>
 				)

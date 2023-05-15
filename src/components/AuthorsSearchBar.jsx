@@ -23,12 +23,10 @@ const AuthorSearchBar = (props) => {
 		else if (filterString === "2")
 			setFieldValues({ ...fieldValues, filter: AUTHOR_FILTERS.LASTNAME });
 		else if (filterString === "3")
-			setFieldValues({ ...fieldValues, filter: AUTHOR_FILTERS.SEUDONIMO });
-		else if (filterString === "4")
 			setFieldValues({ ...fieldValues, filter: AUTHOR_FILTERS.EMAIL });
-		else if (filterString === "5")
+		else if (filterString === "4")
 			setFieldValues({ ...fieldValues, filter: AUTHOR_FILTERS.TEL });
-		else if (filterString === "6")
+		else if (filterString === "5")
 			setFieldValues({ ...fieldValues, filter: AUTHOR_FILTERS.NATION });
 		else console.log("Error al seleccionar filtro");
 	};
@@ -66,7 +64,6 @@ const AuthorSearchBar = (props) => {
 					"All",
 					"Nombres",
 					"Apellidos",
-					"Seudonimo",
 					"Email",
 					"Telefono",
 					"Nacionalidad",

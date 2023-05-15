@@ -18,3 +18,14 @@ body::-webkit-scrollbar-thumb{
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
 }
+
+textarea::-webkit-scrollbar{
+  width: 10px;
+  background: #CFD8DC;
+}
+
+textarea::-webkit-scrollbar-thumb{
+  background: #448cb0;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}

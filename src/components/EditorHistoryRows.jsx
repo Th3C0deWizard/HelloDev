@@ -37,7 +37,6 @@ function EditorHistoryRows(props) {
 						props.showMessage(
 							"Resumen de",
 							props.notification.resumen,
-							props.notification.id_articulo,
 							props.notification.titulo,
 							"resume",
 						);

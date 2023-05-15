@@ -32,7 +32,7 @@ const Register = () => {
 			});
 			if (response.ok) {
 				alert("Usuario creado correctamente");
-				navigate("/login");
+				navigate("/");
 			} else {
 				const data = await response.json();
 				alert(data.message);
@@ -121,10 +121,10 @@ const Register = () => {
 										onChange={handleChange}
 									/>
 									<Input
-										label="Nombre de Uusario *"
+										label="Nombre de Usuario *"
 										type="username"
 										id="nombreUsuario"
-										placeholder="bowser"
+										placeholder="usuario"
 										style=""
 										onChange={handleChange}
 									/>

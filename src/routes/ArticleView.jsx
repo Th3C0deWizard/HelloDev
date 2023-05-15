@@ -5,27 +5,23 @@ import InfoCard from "../components/InfoCard";
 import PdfViewer from "../components/PdfViewer";
 
 const ArticleView = () => {
-	const { titulo, autor, fecha_publicación, resumen, portada, archivo } =
+	const { titulo, nombres, apellidos, fecha_publicación, resumen, portada, archivo } =
 		useLocation().state.article;
-
 	const [pdfFile, setPdfFile] = useState(archivo);
-
+	console.log(useLocation().state.article)
 	return (
 		<>
-			<main className="flex flex-col bg-slate-900 text-white w-full pt-20">
-				<section className="grid grid-cols-3 items-start">
+			<main className="flex flex-col bg-white text-black w-full pt-20">
+				<InfoCard
+					title={titulo}
+					author={`${nombres} ${apellidos}`}
+					date={fecha_publicación.substring(0,10)}
+					synopsis={resumen}
+					cover={portada}
+				/>
+				<section className="py-4">
 					<section className="items-center col-span-2 row-span-2">
 						{pdfFile && <PdfViewer pdf={pdfFile} />}
-					</section>
-
-					<section className="my-5 ml-3 mr-2 p-3 rounded-xl border bg-slate-800">
-						<InfoCard
-							title={titulo}
-							author={autor}
-							date={fecha_publicación}
-							synopsis={resumen}
-							cover={portada}
-						/>
 					</section>
 				</section>
 			</main>

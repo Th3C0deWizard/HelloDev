@@ -10,7 +10,7 @@ function EditorReceivedRows(props) {
 			<td className="px-6 py-3 font-medium whitespace-nowrap">
 				{props.notification.id_articulo}
 			</td>
-			<td className="px-6 py-3 font-medium whitespace-nowrap">
+			<td className="px-6 py-3 font-medium">
 				{props.notification.titulo}
 			</td>
 			<td className="px-6 py-3 font-medium whitespace-nowrap">

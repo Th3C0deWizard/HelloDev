@@ -20,7 +20,7 @@ const useFetch = (url, condition = true) => {
 				setData(gotData);
 			})
 			.catch((error) => console.error(error))
-			.finally(() => setTimeout(() => setIsLoading(false), 1000));
+			.finally(() => setTimeout(() => setIsLoading(false), 100));
 	}, [isLoading]);
 
 	return [data, setData, isLoading, setIsLoading];
