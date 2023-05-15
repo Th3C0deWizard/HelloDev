@@ -12,7 +12,7 @@ const ArticleView = () => {
 
 	return (
 		<>
-			<main className="flex flex-col bg-slate-900 text-white w-full pt-20">
+			<main className="flex flex-col bg-white text-white w-full pt-20">
 				<section className="grid grid-cols-3 items-start">
 					<section className="items-center col-span-2 row-span-2">
 						{pdfFile && <PdfViewer pdf={pdfFile} />}
