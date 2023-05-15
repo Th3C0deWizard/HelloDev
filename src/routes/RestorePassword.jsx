@@ -32,7 +32,7 @@ const RestorePassword = () => {
 			);
 			if (response.ok) {
 				alert("Password changed successfully!");
-				navigate("/login");
+				navigate("/");
 			} else {
 				const data = await response.json();
 				alert(`Error al cambiar la contraseña ${data.message}`);

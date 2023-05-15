@@ -100,6 +100,7 @@ function EditorReceivedRows(props) {
 						props.showInputMessage(
 							props.notification.id_articulo,
 							4,
+							props.notification.id_estado,
 							props.notification.id_emisor,
 							props.notification.titulo,
 							props.notification.fecha,
