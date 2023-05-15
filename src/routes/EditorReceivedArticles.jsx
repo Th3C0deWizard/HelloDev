@@ -104,7 +104,7 @@ const EditorReceivedArticles = (props) => {
 					showSFAlert={showSFAlert}
 					showFAlert={showFAlert}
 					titulo="Evaluación"
-					success={estado === 3 ? "aceptado" : "rechazado"}
+					success={showInputMessage.estado === 3 ? "aceptado" : "rechazado"}
 					fail="No se pudo envaluar el articulo"
 					close={setShowInputMessage}
 					icon="message"
