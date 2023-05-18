@@ -59,7 +59,7 @@ function App() {
 					children: [
 						{
 							path: "EditorReceivedArticles",
-							element: <EditorReceivedArticles user={user}/>,
+							element: <EditorReceivedArticles user={user} />,
 						},
 						{
 							path: "EditorArticlesHistory",

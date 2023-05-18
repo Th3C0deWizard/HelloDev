@@ -16,11 +16,12 @@ function Notification({ key, item }) {
 				</h1>
 				<div className="col-span-2 flex">
 					<h1 className="inline-block text-lg font-semibold text-black ml-auto max-w-md">
-					{`"${item.titulo}"`}
-				</h1>
-				<time className="inline-block text-lg font-semibold text-blue-600 ml-auto">
-					{item.fecha.substring(0, 10).replaceAll("-", "/")}
-				</time></div>
+						{`"${item.titulo}"`}
+					</h1>
+					<time className="inline-block text-lg font-semibold text-blue-600 ml-auto">
+						{item.fecha.substring(0, 10).replaceAll("-", "/")}
+					</time>
+				</div>
 			</section>
 			<section className="grid grid-cols-5 items-center">
 				<div className="col-span-4">
@@ -35,7 +36,9 @@ function Notification({ key, item }) {
 					>
 						{item.estado}
 					</h1>
-					<h1 className="text-sm font-medium text-gray-800 text-justify">{item.mensaje}</h1>
+					<h1 className="text-sm font-medium text-gray-800 text-justify">
+						{item.mensaje}
+					</h1>
 				</div>
 				<a
 					href={`http://localhost:3000/articulos/${item.id_articulo}.pdf`}

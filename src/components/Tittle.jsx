@@ -1,15 +1,15 @@
 function Tittle(props) {
-  return (
-    <h1 className={`text-${props.factor}xl font-extrabold text-[#0069a3] mb-4`}>
-      {props.tittle}{" "}
-      <span
-        className={`bg-[#F4D73B] text-[#0069a3] text-${
-          props.factor - 2
-        }xl font-semibold mr-2 px-2.5 py-0.5 rounded ml-2`}
-      >
-        {props.acronym}
-      </span>
-    </h1>
-  );
+	return (
+		<h1 className={`text-${props.factor}xl font-extrabold text-[#0069a3] mb-4`}>
+			{props.tittle}{" "}
+			<span
+				className={`bg-[#F4D73B] text-[#0069a3] text-${
+					props.factor - 2
+				}xl font-semibold mr-2 px-2.5 py-0.5 rounded ml-2`}
+			>
+				{props.acronym}
+			</span>
+		</h1>
+	);
 }
 export default Tittle;

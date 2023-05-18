@@ -31,7 +31,7 @@ const Login = (props) => {
 				localStorage.setItem("user", JSON.stringify(data));
 				props.setShowLogin(false);
 				alert(`Bienvenido ${data.nombreUsuario}`);
-			}else{
+			} else {
 				alert(`Error al iniciar sesión: ${data.message}`);
 			}
 		} catch (error) {

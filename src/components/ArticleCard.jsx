@@ -11,10 +11,9 @@ const ArticleCard = ({ article }) => {
 			</div>
 			<div className="group block bg-black rounded-tl-3xl shadow-none">
 				<p className="absolute p-10 translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 text-sm text-white ">
-					{article.resumen.lenght <= 400 ? (
-						`"${article.resumen}"`
-					) : (
-						`"${article.resumen.substring(0, 400)}..."`)}
+					{article.resumen.lenght <= 400
+						? `"${article.resumen}"`
+						: `"${article.resumen.substring(0, 400)}..."`}
 				</p>
 
 				<img

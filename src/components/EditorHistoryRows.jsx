@@ -20,13 +20,19 @@ function EditorHistoryRows(props) {
 				{props.notification.estado}
 			</td>
 			<td className="px-6 py-3 font-medium whitespace-nowrap">
-				<a href={props.notification.portada} target="_blank" rel="noreferrer">
-					<img
-						src="./src/components/assets/portada.png"
-						alt="portada"
-						className="h-12 hover:scale-110 transition"
-					/>
-				</a>
+				<img
+					typeof="button"
+					src="./src/components/assets/portada.png"
+					alt="portada"
+					className="h-12 hover:scale-110 transition cursor-pointer"
+					onClick={() => {
+						props.setImageView({
+							visible: true,
+							titulo: props.notification.titulo,
+							imagen: props.notification.portada,
+						});
+					}}
+				/>
 			</td>
 			<td>
 				<button

@@ -7,6 +7,7 @@ import Message from "../components/Message";
 import SuccessfullAlert from "../components/SuccessfullAlert";
 import Table from "../components/Table";
 import useFetch from "../hooks/useFetch";
+import ImageView from "../components/ImageView";
 
 const EditorArticlesHistory = (props) => {
 	const [notifications, setNotifications, isLoading, setIsLoading] = useFetch(
@@ -29,6 +30,12 @@ const EditorArticlesHistory = (props) => {
 		setIcon(icon);
 		setShowMessageN(true);
 	};
+
+	const [imageView, setImageView] = useState({
+		visible: false,
+		titulo: "",
+		imagen: "",
+	});
 
 	const [showSuccessfullAlert, setShowSuccessfullAlert] = useState(false);
 	const [sFTitle, setSFTitle] = useState("");
@@ -81,6 +88,14 @@ const EditorArticlesHistory = (props) => {
 					emisor={emisor}
 					icon={icon}
 					close={setShowMessageN}
+				/>
+			) : null}
+			{imageView.visible ? (
+				<ImageView
+					icon="portada"
+					titulo={imageView.titulo}
+					portada={imageView.imagen}
+					close={() => setImageView({ visible: false, titulo: "", imagen: "" })}
 				/>
 			) : null}
 			{showSuccessfullAlert ? (
@@ -141,6 +156,7 @@ const EditorArticlesHistory = (props) => {
 									showSFAlert={showSFAlert}
 									showFAlert={showFAlert}
 									showInputMessage={handleShowInputMessage}
+									setImageView={setImageView}
 								/>
 							))}
 						/>

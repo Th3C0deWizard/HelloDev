@@ -9,7 +9,7 @@ import Loading from "../components/Loading";
 import Message from "../components/Message";
 import SuccessfullAlert from "../components/SuccessfullAlert";
 import Table from "../components/Table";
-import ImageView from "../components/imageView";
+import ImageView from "../components/ImageView";
 import useFetch from "../hooks/useFetch";
 
 const AuthorArticles = (props) => {
@@ -93,9 +93,7 @@ const AuthorArticles = (props) => {
 
 	return (
 		<>
-			{!showEdit ? (
-				null
-			) : (
+			{!showEdit ? null : (
 				<Edit
 					onClose={handleOnClose}
 					show={showEdit}
@@ -191,6 +189,7 @@ const AuthorArticles = (props) => {
 								showSFAlert={showSFAlert}
 								showFAlert={showFAlert}
 								showInputMessage={handleShowInputMessage}
+								e
 								setImageView={setImageView}
 							/>
 						))}
